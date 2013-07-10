@@ -19,6 +19,8 @@ if( $name !== 'Readme' && $name !== 'use'  && $name !== 'changelog'  ){
 
 # Read file and pass content through the Markdown praser
 $text = file_get_contents("../docs/$name.md");
-echo Markdown::defaultTransform($text);
+$text= Markdown::defaultTransform($text);
 
+file_put_contents("../docs/$name.html", $text);
 
+echo $text;

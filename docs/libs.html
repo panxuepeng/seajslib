@@ -1,0 +1,556 @@
+<p><a name="list"></a></p>
+
+<h2>组件列表</h2>
+
+<h3>互动弹窗</h3>
+
+<p>互动百科目前使用的弹窗组件，通过给超链接(“a"标签)添加属性data-toggle="dialog"，点击超链接后，使用ajax方式加载弹出窗口内容。如果href使用“#”号开头（如#dialog-demo），则相当去获取 $("#dialog-demo").html() 内容赋值给弹窗。<br />
+<a href="lib/dialog/examples/data.txt" data-toggle="dialog"><img src="assets/img/dialog.jpg" style="width:240px;"/></a></p>
+
+<p>支持的data属性包括：</p>
+
+<pre><code>data-width="400" // 宽
+data-height="200" // 高
+data-skin="hudong" // 皮肤 hudong(默认)|xiaobaike|greybox|default|noborder
+data-zindex="200" // 层高
+data-opacity="0.7" // 遮罩层的透明度
+</code></pre>
+
+<p><a href="#dialog-demo" data-toggle="dialog" data-skin="xiaobaike">data-skin="xiaobaike"</a> 
+<a href="#dialog-demo" data-toggle="dialog" data-skin="greybox">data-skin="greybox"</a> 
+<a href="#dialog-demo" data-toggle="dialog" data-skin="default">data-skin="default"</a> 
+<a href="#dialog-demo" data-toggle="dialog" data-skin="noborder">data-skin="noborder"</a></p>
+
+<p>快速演示：</p>
+
+<pre><code>&lt;a href="lib/dialog/examples/data.txt" data-toggle="dialog"&gt;请点击我（ajax方式拿到内容）&lt;/a&gt;
+&lt;a href="#dialog-demo" data-toggle="dialog"&gt;请点击我（选择器方式拿到内容）&lt;/a&gt;
+&lt;div id="dialog-demo" data-toggle="dialog" style="display:none"&gt;我是弹窗的内容&lt;/div&gt;
+</code></pre>
+
+<p><div id="dialog-demo" data-toggle="dialog" style="display:none">我是弹窗的内容</div>
+<a href="lib/dialog/examples/data.txt" data-toggle="dialog">请点击我（ajax方式拿到内容）</a>
+<a href="#dialog-demo" data-toggle="dialog">请点击我（选择器方式拿到内容）</a></p>
+
+<p>普通使用方式：</p>
+
+<pre><code>seajs.use(['dialog'], function( Dialog ){
+    var dialog = Dialog({
+        id: 'ajax',
+        title: '提示',
+        content: '内容',
+        width: 500,
+        height: 200,
+        onok: function( panel, dialog ){
+            dialog.close();
+        },
+        offsetY: -50
+    }).show();
+});
+</code></pre>
+
+<p>详细参数</p>
+
+<pre><code>seajs.use(['dialog'], function( Dialog ){
+    $.dialog({
+        id: 'default',
+        title: '标题',
+        type: 'html', // html img ajax iframe selector
+        content: '',
+        align: 'left',
+        valign: 'center',
+        width: 340,
+        height: 150,
+        fixedSize: false, // 窗口大小自适应内容，并自动根据内容重新定位窗口
+        offsetX: 0, // 水平方向位置调整，负值会使窗口偏左
+        offsetY: 0, // 垂直方向位置调整，负值会使窗口偏上
+
+        // 中间center 中上center-top 中下center-bottom
+        // 右下right-bottom 左上left-top
+        position: 'center',
+        fixed: true, // 固定，不随屏幕滚动
+        draggable: true, // 是否可拖动，拖动功能依赖于 jquery-dragdrop.js
+
+        zIndex: 0, // 默认为0，除非要使用置顶窗口，否则不要使用此设置
+        autoClose: 0, // 自动关闭
+
+        // 遮罩层
+        overlay: {
+            opacity: 0.2, // 透明度 0 - 1
+            bgColor: '#000' // 背景色，默认黑色
+        },
+
+        // 光标默认位置，在输入框的开始或末尾
+        focusInput: '', // '', start, end
+
+        // 事件
+        one: null, // 仅首次显示后执行
+        callback: null, // 弹窗每次显示完成后执行
+        onclose: null,
+        oncancel: null,
+        onok: null,
+        onclick: null,
+        onmouseover: null,
+        onmouseout: null,
+
+        textOk:'确 定',
+        textCancel:'取 消',
+
+        // 正在加载的提示信息
+        loadding: 'loadding...',
+        loadErrorInfo:'加载失败',
+
+        // 皮肤
+        skin: 'hudong', //默认有：default noborder bluebox greybox xiaobaike hudong
+
+        // 自定义样式，方便在不更换皮肤的情况下进行样式微调
+        // style: {title: {key:value, key2:value2, .....}}
+        style: {
+            'outter-wrap':'',
+            'inner-wrap':'',
+            'title':'',
+            'content':'',
+            'bottom':'',
+            'ok':'',
+            'cancel':'',
+            'close':'',
+            'error':'',
+            'success':'',
+            'status':''
+        }
+    });
+});
+</code></pre>
+
+<p>常见问题
+1. </p>
+
+<p>目前状态: 已引入<br />
+组件路径: dialog/2.8.0/dialog<br />
+使用文档: <a href="lib/dialog/examples/">演示及使用手册</a></p>
+
+<h3>artDialog（弹窗）</h3>
+
+<p>artDialog 是一个设计得十分巧妙的对话框组件，小巧身材却拥有丰富的接口与漂亮的外观。通过给超链接(“a"标签)添加属性data-toggle="artdialog"，点击超链接后，使用ajax方式加载弹出窗口内容。如果href使用“#”号开头（如#artdialog-demo），则相当去获取 $("#artdialog-demo").html() 内容赋值给弹窗。<br />
+<a href="lib/artdialog/examples/data.txt" data-toggle="artdialog"><img src="assets/img/artdialog.jpg" style="width:240px;"/></a></p>
+
+<p><em>注意：</em>ie6下只能使用default样式，其他浏览器可以使用green皮肤。也就是说ie6和其他浏览器是两种样式。所以，目前来看可能比较适合后台使用。</p>
+
+<p>支持的data属性包括：</p>
+
+<pre><code>data-width="400" // 宽
+data-height="200" // 高
+data-zindex="200" // 层高
+data-lock="true" // true|false(默认) 是否使用遮罩层
+</code></pre>
+
+<p>快速演示：</p>
+
+<pre><code>&lt;a href="lib/artdialog/examples/data.txt" data-toggle="artdialog"&gt;请点击我（ajax方式拿到内容）&lt;/a&gt;
+&lt;a href="#artdialog-demo" data-toggle="artdialog"&gt;请点击我（选择器方式拿到内容）&lt;/a&gt;
+&lt;div id="artdialog-demo" data-toggle="artdialog" style="display:none"&gt;我是artDialog弹窗的内容&lt;/div&gt;
+</code></pre>
+
+<p><div id="artdialog-demo" data-toggle="artdialog" style="display:none">我是artDialog弹窗的内容</div>
+<a href="lib/artdialog/examples/data.txt" data-toggle="artdialog" data-lock="true">请点击我（ajax方式拿到内容）</a>
+<a href="#artdialog-demo" data-toggle="artdialog" >请点击我（选择器方式拿到内容）</a></p>
+
+<pre><code>seajs.use(['artdialog'], function(dialog){
+    dialog({
+        fixed: true,
+        title: '提示',
+        width: 500,
+        height: 200,
+        content: '内容'
+    });
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: artDialog/5.0.3/artDialog<br />
+使用文档: <a href="lib/artdialog/examples/">演示及使用手册</a></p>
+
+<h3>日历</h3>
+
+<p>一个简单的日历组件，通过给input标签 &lt;input type="text" <strong>data-toggle="calendar"</strong>/&gt; 增加 data-toggle="calendar" 属性即可。<br />
+<img src="assets/img/calendar.jpg" style="width:240px;"/></p>
+
+<p>支持的data属性包括：</p>
+
+<pre><code>data-beginyear="2000" // 起始年份
+data-endyear="2013" // 结束年份
+</code></pre>
+
+<p>演示 <input type="text" data-toggle="calendar"/></p>
+
+<p>目前状态: 已引入<br />
+组件路径: calendar/0.1.0/calendar<br />
+使用文档: <a href="lib/calendar/examples/">演示及使用手册</a></p>
+
+<h3>小百科图片上传</h3>
+
+<p>百科站点前台上传图片组件  </p>
+
+<pre><code>seajs.use('baikeupload', function( ){
+    var url="http://a5.att.baike.com/uploadImageForBaike.wiki?doc_title="
+        +"&amp;art_iden=&amp;type=19&amp;curuser_iden=HeWBmR0dnBn5ld3J4&amp;"
+        +"host=http%3A%2F%2Fcommonjs.baike.com%2Flib%2Fbaikeupload"
+        +"%2Fexamples%2Fupload.php";
+
+    $('#baikeupload').baikeUpload({
+        url: url,
+        uploading: function(){
+
+        },
+        success: function( imgUrl ){
+            alert(imgUrl);
+        },
+        error: function(msg){
+            alert(msg);
+        },
+        complete: function(){
+
+        }
+    });
+});
+</code></pre>
+
+<p><button id="baikeupload">选择图片</button>（需先点击【运行】按钮）</p>
+
+<p>目前状态: 已开发<br />
+组件路径: baikeupload/0.1.0/baikeupload<br />
+使用文档: <a href="lib/baikeupload/examples/">演示及使用手册</a></p>
+
+<h3>表单验证(HTML5 风格)</h3>
+
+<p>HTML5风格的意思是,表单验证规则是通过给表单项增加属性定义的，而不是通过定义纯js对象。关于HTML5 表单属性的详细内容，可以参考<a href="http://www.w3school.com.cn/html5/html_5_form_attributes.asp">这里</a></p>
+
+<p>目前 type 的类型支持 email/tel/url/range/number 等 HTML5 Form API 支持的类型，当 type 不存在，但为验证项时，则测试表单是否有空；当有标记 <code>maxLength</code> 的时候验证表单值的长度；当有 min/max 的时候和 <code>type=range</code> 一样验证当前值是否在 min/max 区间：<code>min &lt;= value &lt;= max</code>。</p>
+
+<p>同时，如果表单存在 pattern 属性，则不使用 type 作为验证，保持与 HTML5 API 一致，可以作为一种表单自定义验证的方式。比如下面这个表项，将不按 type="email" 来验证，而是使用 pattern 中的正则表达式来验证：</p>
+
+<p><code>&lt;input type="email" pattern="参照 HTML5 规范的正则表达式" /&gt;</code></p>
+
+<p><strong>异步验证</strong></p>
+
+<p>在表单添加一个 data-url 的属性指定异步验证的 URL 那可，有几个可选的项：</p>
+
+<pre><code>data-url: 异步验证的 url
+data-method: [可选] AJAX 请求的方法: get,post,getJSON 等，默认是 get
+data-key: [可选] 发送当前表单值时用的 key，默认是 'key'：$.get(url, {key: 表单的值})
+</code></pre>
+
+<p>如
+<code>&lt;input type="text" data-url="https://api.github.com/legacy/user/search/china" data-method="getJSON" required&gt;</code></p>
+
+<p><strong>自定义事件</strong></p>
+
+<p>可以在 html 中添加 <code>data-event</code> 以在单独的元素中触发自定义事件。假设我们设置一个 <code>hello</code> 事件，最终会触发在验证这个表单前触发 <code>before.hello</code> 事件，并且在验证完当前表单后触发一个 <code>after.hello</code> 事件。默认不触发任何事件：</p>
+
+<p><code>html
+&lt;input id="event" type="text" data-event="hello" required&gt;</code></p>
+
+<p>可以使用标准的 jQuery <code>on</code>(jQuery1.7+) 或 <code>bind</code>(jQuery1.4+) 方法来监听这个事件：</p>
+
+<pre><code>$('#event').on('before:hello', function(event, element){
+  alert('`before.hello` event trigger on $("#' + element.id + '")');
+});
+
+$('#event').on('after:hello', function(event, element){
+  alert('`after.hello` event trigger on $("#' + element.id + '")');
+});
+</code></pre>
+
+<p><strong>参数设置</strong></p>
+
+<pre><code>$('#formid').validator({
+    // 验证失败是给表单项添加到classname，默认是error
+    errorClass: 'error'
+
+    // 指定classnaqme添加到父标签上
+    , isErrorOnParent: true
+
+    // 表单在提交时，如果有验证失败，将调用此方法
+    // 参数 unvalidFields 是未通过验证的表单项列表
+    , submitError: function(unvalidFields){
+        $(unvalidFields).each(function(i, item){
+
+        });
+        //return false; 将阻止表单提交
+    }
+
+    // 所有的表单项，验证失败时都会执行这个方法
+    , inputError: function( $el ){
+
+    }
+
+    // 在表单提交前/后执行的方法
+    // 参数是表单项集合的jQuery对象
+    , before: function($items) {}
+
+    // 如果没有验证失败的表单项，将执行after方法
+    // 如果after方法返回false，将阻止表单提交
+    , after: function($items) {return true}
+
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: validator/1.1.0/validator<br />
+使用文档: <a href="lib/validator/examples/">演示及使用手册</a><br />
+兼容测试：主流浏览器（包括IE6）</p>
+
+<h3>SlidesJS(幻灯片)</h3>
+
+<p>SlidesJS 是一个简单的容易定制和风格化的jQuery幻灯片插件。
+SlidesJS提供褪色或幻灯片过渡效果，图像淡入淡出，图像预压，自动生成分页，循环，自动播放的自定义等很多选项。</p>
+
+<p>目前状态: 已引入<br />
+组件路径: slidesjs/3.0.3/slidesjs<br />
+使用文档: <a href="lib/slidesjs/examples/">演示</a>，<a href="http://slidesjs.com/">官方手册</a><br />
+注意事项：依赖jQuery (1.7.1+) </p>
+
+<h3>Underscore（函数库）</h3>
+
+<p>Underscore(<a href="http://underscorejs.org">http://underscorejs.org</a>)是一个非常实用的JavaScript库，提供许多编程时需要的功能的支持，他在不扩展任何JavaScript的原生对象的情况下提供很多实用的功能。代码1000来行，包含60多个函数，提供完整的<a href="http://documentcloud.github.com/underscore/test/test.html">测试用例集合</a>，
+提供<a href="http://documentcloud.github.com/underscore/docs/underscore.html">带注释的源码</a></p>
+
+<pre><code>seajs.use(['underscore'], function(_){
+    _.each([1, 2, 3], function(i){alert(i)});
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: underscore/1.4.4/underscore<br />
+使用文档: 请参考<a href="http://underscorejs.org">官方手册</a></p>
+
+<h3>Moment(日期处理类库)</h3>
+
+<p>Moment.js是一个简单易用的轻量级JavaScript日期处理类库，提供了日期格式化、日期解析等功能。它支持在浏览器和NodeJS两种环境中运行。此类库能够将给定的任意日期转换成多种不同的格式，具有强大的日期计算功能，同时也内置了能显示多样的日期形式的函数。</p>
+
+<pre><code>seajs.use(['moment'], function(moment){
+    var now = moment();
+    alert(now.format('YYYY-MM-DD'));
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: moment/2.0.0/moment<br />
+使用文档: 请参考<a href="http://momentjs.com/docs/">官方手册</a></p>
+
+<h3>自动完成</h3>
+
+<p>一个基本jquery的自动完成组件 
+<input type="text" data-toggle="autocomplete" data-url="lib/autocomplete/examples/search.php"></p>
+
+<p>目前状态: 已引入<br />
+组件路径: autocomplete/2.4.4/autocomplete<br />
+使用文档: <a href="lib/autocomplete/examples/">演示</a>，<a href="https://github.com/dyve/jquery-autocomplete/blob/master/doc/jquery.autocomplete.txt">官方手册</a></p>
+
+<h3>树形菜单ztree</h3>
+
+<p>zTree 是一个依靠 jQuery 实现的多功能 “树插件”。优异的性能、灵活的配置、多种功能的组合是 zTree 最大优点。</p>
+
+<p>目前状态: 已引入<br />
+组件路径: ztree/3.5.12/ztree<br />
+使用文档: <a href="http://www.ztree.me/v3/demo.php#_101">官方手册</a></p>
+
+<h3>JSON</h3>
+
+<p>一个js封装的 JSON 操作库，Chrome、Firefox、IE8+已经原生支持 JSON 对象，不需要引用此库。ie6/7下如有json相关操作，可考虑使用。</p>
+
+<pre><code>seajs.use(['json'], function(JSON){
+    var str = '{"key":"value","name":"panxuepeng"}';
+    var obj = JSON.parse(str); //由JSON字符串转换为JSON对象
+    var str = JSON.stringify(obj); //将JSON对象转化为JSON字符
+    alert(str); // {"key":"value","name":"panxuepeng"}
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: json/2.0.0/json<br />
+使用文档: 请参考<a href="http://www.json.org/">官方手册</a></p>
+
+<h3>可实时编辑的表格</h3>
+
+<p>双击单元格使其处于可编辑状态</p>
+
+<p>目前状态: 已开发<br />
+组件路径: edittable/0.1.0/edittable<br />
+使用文档: <a href="lib/edittable/examples/">演示及使用手册</a></p>
+
+<h3>级联下拉菜单</h3>
+
+<p>一个select 多级选择 操作库</p>
+
+<p>目前状态: 已开发<br />
+组件路径: selectlist/0.1.0/selectlist<br />
+使用文档: <a href="lib/selectlist/examples/">演示及使用手册</a></p>
+
+<h3>fixed(固定元素)</h3>
+
+<p>将标签固定在页面某个位置上，兼容ie6。本文档右下角的返回顶部按钮，就正在使用fixed组件。</p>
+
+<p>三种情况：</p>
+
+<ol>
+<li>根据窗口定位工具条，常见于右下角回顶部等按钮</li>
+<li>根据页面偏移位置定位工具条，常见于文章目录导航等按钮，或者右侧浮动区块等</li>
+<li>页面顶部或底部浮动工具条</li>
+</ol>
+
+<p>支持的data属性包括：</p>
+
+<pre><code>data-type="ontop" // 4个值：ontop onbottom onright oncenter
+data-right="10" // 距离窗口右侧的距离，data-type="onright"时有效
+data-bottom="80" // 距离窗口底部的距离，data-type="onright|oncenter"时有效
+data-offset="200" // 距离窗口中心向右偏移的距离，data-type="oncenter"时有效
+data-top="30" // 距离窗口顶部多大距离时开始浮动，data-type="oncenter"时有效
+data-trigger="scrolltop" // 当 scrollTop === data-top的值时触发浮动
+</code></pre>
+
+<p>例如  </p>
+
+<pre><code>&lt;div class="fixedbar1" data-toggle="fixed" data-type="ontop"&gt;固定元素到窗口顶部&lt;/div&gt;
+&lt;div class="fixedbar1" data-toggle="fixed" data-type="onbottom"&gt;固定元素到窗口底部&lt;/div&gt;
+&lt;div class="fixedbar2" data-toggle="fixed" data-type="onright" data-right="10" data-bottom="80"&gt;返回顶部&lt;/div&gt;
+&lt;div class="fixedbar2" data-toggle="fixed" data-type="oncenter" data-offset="200" data-bottom="100"&gt;目录&lt;/div&gt;
+</code></pre>
+
+<p>使用时，仅需要引入即可</p>
+
+<pre><code>seajs.use('fixed');
+</code></pre>
+
+<p>目前状态: 开发中<br />
+组件路径: fixed/0.2.0/fixed<br />
+使用文档: <a href="lib/fixed/examples/">演示及使用手册</a></p>
+
+<h3>幻灯片</h3>
+
+<p>目前状态: 开发中<br />
+组件路径: slide/0.1.0/slide<br />
+使用文档: <a href="lib/slide/examples/">演示及使用手册</a></p>
+
+<h3>右键菜单</h3>
+
+<p>一块基于jQuery的右键菜单</p>
+
+<p>目前状态: 已引入<br />
+组件路径: contextmenu<em>hd/0.1.0/contextmenu</em>hd<br />
+使用文档: <a href="lib/contextmenu_hd/examples/">演示及使用手册</a>，请参考<a href="http://medialize.github.com/jQuery-contextMenu/demo.html">官方手册</a></p>
+
+<h3>通用的拖拽效果</h3>
+
+<p>目前状态: 已开发<br />
+组件路径: easydrag/0.1.0/easydrag<br />
+使用文档: <a href="lib/artdialog/examples/">演示及使用手册</a></p>
+
+<h3>下拉菜单</h3>
+
+<p>目前状态: 待开发<br />
+组件路径: select/0.1.0/select<br />
+使用文档: 请参考<a href="http://momentjs.com/docs/">官方手册</a></p>
+
+<h3>取色器(word样式)</h3>
+
+<p>&lt;input type="input" class="btn" <strong>data-toggle="colorpicker"</strong>/&gt;
+演示 <input type="input" value="点击选择颜色" class="btn" data-toggle="colorpicker"/></p>
+
+<p>目前状态: 已开发<br />
+组件路径: colorpicker/0.1.0/colorpicker<br />
+使用文档: <a href="lib/colorpicker/examples/">演示及使用手册</a></p>
+
+<h3>文件上传plupload</h3>
+
+<p>Plupload 是一个Web浏览器上的界面友好的文件上传模块，可显示上传进度、图像自动缩略和上传分块。可同时上传多个文件，可以将图片在浏览器压缩后在上传，并且会保留图片的Exif信息。</p>
+
+<pre><code>seajs.use(['plupload'], function(plupload){
+
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: plupload/1.5.6/plupload<br />
+使用文档: 请参考<a href="http://www.plupload.com/documentation.php">官方手册</a></p>
+
+<h3>语法高亮(SyntaxHighlighter)</h3>
+
+<p>目前状态: 待引入<br />
+组件路径:<br />
+使用文档: 请参考<a href="">官方手册</a></p>
+
+<h3>代码高亮(google-code-prettify)</h3>
+
+<p>Google Code Prettify是一个JavaScript库，用来对各种页面上的源码进行语法着色高亮显示。Google Code Prettify很小巧，约15K。支持大部分常用的编程语言。使用时不需要指定语言。</p>
+
+<p>给pre标签加上data-toggle="prettify"属性即可自动实现代码高亮。本文档的源码部分文字就是使用这个组件高亮的！</p>
+
+<p>普通使用方法，主要是没有使用data-toggle="prettify"属性时使用</p>
+
+<pre><code>seajs.use('prettify', function( Prettify ){
+    Prettify.prettyPrint();
+});
+</code></pre>
+
+<p>注意，上面这个运行按钮点击后可能没有任何效果。因为代码已经高亮过了。</p>
+
+<p>目前状态: 已引入<br />
+组件路径:  prettify/2.0.0/prettify<br />
+使用文档: <a href="lib/prettify/examples/">演示</a>，详情请参考<a href="https://code.google.com/p/google-code-prettify/wiki/GettingStarted">官方手册</a></p>
+
+<h3>图表库(highcharts)</h3>
+
+<p>Highcharts 是一个用纯JavaScript编写的一个图表库, 能够很简单便捷的在web网站或是web应用程序添加有交互性的图表。目前HighCharts支持的图表类型有曲线图、区域图、柱状图、饼状图、散状点图和综合图表。</p>
+
+<p>目前状态: 已引入<br />
+组件路径:highcharts/2.3.5/highcharts<br />
+使用文档: <a href="lib/highcharts/examples/">演示</a>，详情请参考<a href="http://www.highcharts.com/demo/">官方演示</a></p>
+
+<h3>图表库(highstock)</h3>
+
+<p>曲线图、折线图、趋势图等</p>
+
+<p>目前状态: 已引入<br />
+组件路径: plupload/1.0.0/plupload<br />
+使用文档: <a href="lib/highcharts/examples/">演示</a>，详情请参考<a href="http://www.highcharts.com/stock/demo/">官方演示</a></p>
+
+<h3>md5</h3>
+
+<p>js 封装的  md5 操作库，用户的秘密可以在客户端md5之后再发送到服务器</p>
+
+<pre><code>seajs.use(['md5'], function(md5){
+    alert(md5('111111')); // 96e79218965eb72c92a549dd5a330112
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: md5/1.0.0/md5<br />
+使用文档: 请参考<a href="http://momentjs.com/docs/">官方手册</a></p>
+
+<h3>Bootstrap</h3>
+
+<p>Bootstrap是快速开发Web应用程序的前端工具包。它是一个CSS和HTML的集合，它使用了最新的浏览器技术，给你的Web开发提供了时尚的版式，表单，buttons，表格，网格系统等等。</p>
+
+<p>Bootstrap 并不是严格的seajs模块，这里主要使用seajs加载文件。Bootstrap还是使用jQuery插件的形式使用即可。</p>
+
+<pre><code>seajs.use(['bootstrap'], function(){
+
+});
+</code></pre>
+
+<p>目前状态: 已引入<br />
+组件路径: bootstrap/2.3.1/bootstrap<br />
+使用文档: <a href="lib/bootstrap/examples/">演示</a>，详情请参考<a href="http://twitter.github.com/bootstrap/">官方手册</a></p>
+
+<h3>图片瀑布流</h3>
+
+<p>目前状态: 待整理<br />
+组件路径:<br />
+使用文档: </p>
+
+<h3>编辑器</h3>
+
+<p>目前状态: 开发中...<br />
+组件路径: bkeditor/0.9.0/bkeditor<br />
+使用文档: <a href="lib/bkeditor/examples/">演示</a></p>

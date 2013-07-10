@@ -17,22 +17,22 @@
 		$(window).resize(resizeSidebar);
 	}
 
-	$.get('server/readme.php?name=Readme', function( html ){
+	$.get('docs/Readme.html', function( html ){
 		html = html.replace(/<a/g, '<a target="_blank"');
 		$("#markdown-Readme").html(html);
 	});
 
-	$.get('server/readme.php?name=use', function( html ){
+	$.get('docs/use.html', function( html ){
 		html = html.replace(/<a/g, '<a target="_blank"');
 		$("#markdown-use").html(html);
 	});
 
-	$.get('server/readme.php?name=changelog', function( html ){
+	$.get('docs/changelog.html', function( html ){
 		html = html.replace(/<a/g, '<a target="_blank"');
 		$("#markdown-changelog").html(html);
 	});
 
-	$.get('server/readme.php?name=libs', function( html ){
+	$.get('docs/libs.html', function( html ){
 		var o = $("#markdown-libs");
 		html = html.replace(/<a/g, '<a target="_blank"');
 		o.html(html);

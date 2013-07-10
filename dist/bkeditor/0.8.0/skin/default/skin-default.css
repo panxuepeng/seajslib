@@ -1,0 +1,282 @@
+/*****************************************
+ * 注意：
+ * 1. 针对编辑器某部分的样式名称，都需要添加 bke- 前缀
+ * 
+ *****************************************/
+
+.clearfix:after{content:'\20'; display:block; height:0; clear:both}
+.clearfix:after{*zoom:1}
+a {text-decoration :none; color:#369;}
+.bke-contentarea{clear:both;}
+.bke-iframeholder{position:relative;z-index:1;}
+.bke-toolbar{position:relative;z-index:2;border:1px solid #D6D6D6;padding:2px;min-height:25px;_height:25px;_border-color:red;_background-color:#FCFCFC;background-color:#FCFCFC;/*background:#FFF url(image/toolbar_bg.gif) repeat-x left bottom;*/}
+.bke-toolbar-fixed {position:fixed; _position:absolute !important; top:0; _top: expression(documentElement.scrollTop);}
+
+.bke-message{position:absolute; background-color:#F9F9FF; bottom:-30px; height:28px; line-height:28px; width:auto; left:100px; right:100px; font-size:14px; text-align:center; border:1px dashed #C8CCFF; border-top:0;z-index:900;display:none;}
+
+.bke-btn{margin:2px; cursor:pointer; border:1px solid transparent;_border:1px solid #FFF;}
+.bke-icon, .bke-caret{background-image:url(image/icon_mce.gif);}
+.bke-icon-none{background:none;}
+.bke-icon a, .bke-caret a{display:inline-block;width:100%;height:100%;}
+.bke-icon, .bke-text, .bke-icon-menu{position:relative; float:left;/*display:inline-block;*/ height:21px;}
+.bke-icon{ width:21px; }
+.bke-caret{position:absolute; right:0; top:0; width:10px; height:21px;background-position:-740px 0;border-left:1px solid transparent;_border:1px solid #FFF;}
+.bke-text{width:auto;min-width:40px; padding:0 5px; border:1px solid #CCC; background:none; line-height:21px;font-size:12px;}
+.bke-menu{padding-right:15px;}
+.bke-icon-menu{padding-right:12px;}
+.bke-btn-nocaret {padding-right:0;}
+.bke-btn-nocaret .bke-caret{display:none;}
+.bke-disabled {opacity: 0.3; filter:alpha(opacity=30);}
+.bke-hover, .bke-checked,  .bke-clicked, .bke-btn:hover {background-color:#ecf1f7; border:1px solid #aecff7;z-index:10;}
+.bke-hover .bke-caret, .bke-checked .bke-caret{border-left:1px solid #aecff7;}
+
+/***************************************
+* bke-bottombar
+****************************************/
+.bke-bottombar {height:20px;	line-height:20px;font-size:12px;border-top:1px solid #CCC;padding:2px 5px;margin-top:2px;color:#666;}
+.bke-elementpath a{margin:0 5px;}
+.bke-wordcount {float:right;}
+
+/***************************************
+ * bke-menu
+****************************************/
+.bke-submenu{position:absolute;border:1px solid #A1BADF;box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);/*min-width:150px;min-height:100px;*/top:21px;left:-1px;display:none;background-color:#FFF;cursor:default;padding:5px;}
+.bke-contextmenu{position:absolute;border:1px solid #A1BADF;box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);display:none;background-color:#FFF;cursor:default;}
+.bke-contextmenu  .bke-menu .bke-menu{border:1px solid #A1BADF;box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);background-color:#FFF;cursor:default;}
+.bke-checked .bke-submenu{display:block;}
+.bke-menu{font-size:12px; color:#454545; background-color:#FFF;padding:2px; font-family:Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti,\5FAE\8F6F\96C5\9ED1;*width:160px;}
+.bke-menu-body{background:#FFF url(image/sparator_v.png) repeat-y 26px; min-width:160px;*width:160px;}
+.bke-menu-item{position:relative; padding:1px; height:20px; cursor:default; line-height:20px; min-width:160px; border:1px solid transparent;_border-color:#F1F1F1;z-index:30;}
+.bke-menu-item-hover{background-color:#ecf1f7; border:1px solid #aecff7;}
+.bke-menu-item:hover{cursor:pointer;background-color:#ecf1f7; border:1px solid #aecff7;}
+.bke-menu-item:hover  > .bke-menu-icon{background-color:#ecf1f7; }
+/* 注意：background-position: -320px 0; 默认是一个空白背景 */
+.bke-menu-icon{background:#FFF url(image/icon_mce.gif);background-position: -320px 0; float:left; width:20px; height:20px; overflow: hidden; margin:0 0 1px; padding:0; border:none; display: inline-block !important;}
+.bke-menu-more {height:20px; overflow: hidden; width:20px;background-image:url(image/icon_mce.gif);background-position:-720px -40px;display: inline-block !important;float:right;}
+.bke-menu-label{float:left; line-height: 20px; height:20px; padding-left: 10px; padding-right: 20px; display: inline-block !important; overflow: hidden;}
+
+.bke-menu-separator{margin: 1px 0; padding:1px 0 2px;height: 1px;}
+.bke-menu-separator-inner{border-bottom: 1px solid #E2E3E3;margin-left: 29px; margin-right: 1px;height:1px;line-height:1px;}
+.bke-menu-item .bke-menu { display:none;  position:absolute; left:160px; *width:160px; border:1px solid #ccc;top:-1px; background-color:#FFF;z-index:100;}
+.bke-menu-item .bke-submenu { display:none;  position:absolute; left:160px; border:1px solid #A1BADF;box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);z-index:100;}
+/*.bke-menu-item:hover .bke-menu-body { display:block; }*/
+
+/***************************************
+ * bke-icon
+****************************************/
+.bke-codemirror{background-position:-260px 0;}
+.bke-Bold{background-position:-40px -40px;}
+.bke-ForeColor{background-position:-720px 0;}
+.bke-Help{background-position:-340px 0;}
+.bke-DocProps {background-position: -900px -20px;}
+.bke-Save {background-position: -480px -20px;}
+.bke-NewPage {background-position: -520px 0;}
+.bke-Preview {}
+.bke-Templates {background-position: -820px -20px;}
+.bke-Cut {background-position: -680px 0;}
+.bke-Copy {background-position: -700px 0;}
+.bke-Paste {background-position: -560px 0;}
+.bke-PasteText {background-position: -360px -20px;}
+.bke-PasteToText {background-position: -360px -20px;}
+.bke-PasteWord {background-position: -380px -20px;}
+.bke-Print {background-position: -440px -20px;}
+.bke-SpellCheck {background-position: -540px -20px;}
+.bke-Undo {background-position: -179px -40px;}
+.bke-Redo {background-position: -200px -40px;}
+.bke-Find {background-position: -520px -20px;}
+.bke-Replace {background-position: -500px -20px;}
+.bke-SelectAll{background-position: -400px -20px;}
+.bke-RemoveFormat {background-position: -580px 0;}
+.bke-BoldGroup {background-position: -40px -40px;}
+.bke-Italic {background-position: -59px -40px;}
+.bke-Underline {background-position: -138px -40px;}
+.bke-StrikeThrough {background-position: -120px 0;}
+.bke-SubScript {background-position: -600px -40px;}
+.bke-SuperScript {background-position: -620px -40px;}
+.bke-Lowercase {background-position: -780px -40px;}
+.bke-Uppercase {background-position: -760px -40px;}
+.bke-ClearStyle {background-position: -580px 0;}
+.bke-InsertOrderedList { background-position: -80px -40px;}
+.bke-InsertUnorderedList {background-position: -20px -40px;}
+.bke-Outdent {background-position: -541px -40px;}
+.bke-Indent {background-position: -401px -40px;}
+.bke-SpaceTop {background-position: -840px -40px;}
+.bke-SpaceBottom {background-position: -820px -40px;}
+.bke-SpaceLine {background-position: -800px -40px;}
+.bke-JustifyLeft {background-position: -460px -40px;}
+.bke-AlignGroup {background-position: -460px -40px;}
+.bke-JustifyCenter {background-position: -420px -40px;}
+.bke-JustifyRight {background-position: -480px -40px;}
+.bke-JustifyFull{background-position: -440px 0;}
+.bke-Link {background-position: -520px -40px;}
+.bke-Unlink {background-position: -640px 0;}
+.bke-Anchor {background-position: -200px 0;}
+.bke-Image {background-position: -900px -40px;}
+.bke-Flash {background-position: -320px -20px;}
+.bke-InsertTable {background-position: -580px -40px;}
+.bke-TableGroup {background-position: -580px -40px;}
+.bke-Smiley {background-position: -60px -20px;}
+.bke-SpecialChar {background-position: -239px 0;}
+.bke-PageBreak {background-position: 0 -40px;}
+.bke-ForeColor {background-position: -720px 0;}
+.bke-BackColor {background-position: -760px 0;}
+.bke-About {background-position: -340px 0;}
+.bke-Help {background-position: -340px 0;}
+.bke-FitWindow {background-position: -100px -20px;}
+.bke-Blockquote {background-position: -220px 0;}
+.bke-CreateDiv {background-position: -260px -20px;}
+.bke-Cleanup {background-position: -40px 0;}
+.bke-InsertDate {background-position: -140px -20px;}
+.bke-InsertTime {background-position: -160px -20px;}
+.bke-TableProps {background-position: -580px -20px;}
+.bke-CellProps {background-position: -600px -20px;}
+.bke-RemoveTable { background-position: -620px -20px;}
+.bke-RemoveColumn {background-position: -640px -20px;}
+.bke-RemoveRow {background-position: -660px -20px;}
+.bke-ColumnInsertAfter {background-position: -680px -20px;}
+.bke-ColumnInsertBefore {background-position: -700px -20px;}
+.bke-RowInsertAfter {background-position: -720px -20px;}
+.bke-RowInsertBefore {background-position: -740px -20px;}
+.bke-ColumnMergeAfter {background-position: -642px -42px;}
+.bke-RowMergeAfter {background-position: -662px -42px;}
+.bke-CellCombine {background-position: -760px -20px;}
+.bke-RowSplit {background-position: -682px -42px;}
+.bke-ColSplit {background-position: -702px -42px;}
+.bke-WholeSplit {background-position: -800px -20px;}
+.bke-CellColor {background-position: -400px -20px;}
+.bke-BaikeLink {background-position: -500px -40px;}
+.bke-Video { background-position: -320px -40px;}
+.bke-MultiImage { background-position: -380px -40px;}
+.bke-Code {background-position: -260px -40px;}
+.bke-SetColumnAlignLeft {background-position: -460px -40px;}
+.bke-SetColumnAlignRight {background-position: -480px -40px;}
+.bke-SetColumnAlignCenter {background-position: -420px -40px;}
+.bke-SetRowAlignLeft {background-position: -460px -40px;}
+.bke-SetRowAlignRight {background-position: -480px -40px;}
+.bke-SetRowAlignCenter {background-position: -420px -40px;}
+.bke-ClearDoc , .bke-cleardoc {background-position: -520px 0;}
+.bke-Map {background-position: -940px -40px;}
+.bke-Reference {background-position: -920px 0;}
+.bke-AutoFormat {background-position: -340px -40px;}
+
+.bke-FontSize, .bke-Font  {float:left; width:55px;}
+.bke-BackColor i, .bke-ForeColor i{position:absolute; width:20px; height:5px; left:2px; bottom:0;}
+
+/*******************************************************
+ * plugin - color
+ ******************************************************/
+.bke-colorPacker .bke-menu-item {
+	width:6px;
+	min-width:6px;
+	height:6px;
+	float:left;
+	margin:1px;
+
+}
+
+.disabled {filter:Gray; }
+.disabled .bke-menu-item {background-color:#EEF;}
+
+/* 颜色弹出菜单 */
+.edui-box {
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+a.edui-box {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.edui-colorpicker-topbar {
+    height: 27px;
+    width: 200px;
+    /*border-bottom: 1px gray dashed;*/
+}
+
+.edui-colorpicker-preview {
+    height: 20px;
+    border: 1px inset black;
+    margin-left: 1px;
+    width: 128px;
+    float: left;
+}
+
+.edui-colorpicker-nocolor {
+    float: right;
+    margin-right: 1px;
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+    border: 1px solid #333;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+.edui-colorpicker-tablefirstrow {
+    height: 30px;
+}
+
+.edui-colorpicker-colorcell {
+    width: 14px;
+    height: 14px;
+    display: block;
+    margin: 0;
+    cursor: pointer;
+}
+
+.edui-colorpicker-colorcell:hover {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+}
+
+/*弹窗里面的字号*/
+.aui_outer {
+	font-size:12px;
+}
+.bke-contentarea {border:1px solid #CCC;}
+
+.bke-info {font-size:12px; color:#454545; line-height:20px;}
+
+/* plugin - talbe */
+.bke-InsertTable .bke-caret{display:none;}
+.bke-plugin-table  .cell-hover {background-color : #ddeafd;border-color : #c2d8ff;}
+.bke-plugin-table {-moz-user-select:-moz-none;background:#fff;width:200px;border-collapse:separate; text-align:center; cursor:pointer;}
+.bke-plugin-table td {height:12px;background:#f8f8f8; border:1px solid #ccc;line-height:16px;}
+.bke-plugin-table td  a{display:block;text-decoration:none;cursor:pointer;height:100%;}
+.bke-plugin-table .hover {background:#ddeafd; border:1px solid #c2d8ff}
+
+.bke-selecttablebar{width:30px; height:30px; cursor:move; position:absolute; left:-200px;top:-200px;border:1px solid green;}
+
+/*******************************************************
+ * plugin - fontsize fontname
+ ******************************************************/
+.bke-font12 {font-size:12px;}
+.bke-font14 {font-size:14px;}
+.bke-font18 {font-size:18px;}
+.bke-font24 {height:24px; font-size:24px;}
+.bke-font24 .bke-menu-label {height:24px; line-height:24px;}
+.bke-font36 {height:36px; font-size:36px;}
+.bke-font36 .bke-menu-label {height:36px; line-height:36px;}
+
+.bke-SimSun {font-family:SimSun;}
+.bke-FangSong_GB2312 {font-family:FangSong_GB2312;}
+.bke-Microsoft_YaHei {font-family:Microsoft YaHei;}
+.bke-SimHei {font-family:SimHei;}
+.bke-KaiTi_GB2312 {font-family:KaiTi_GB2312;}
+.bke-Impact {font-family:Impact;}
+.bke-Georgia {font-family:Georgia;}
+.bke-Arial {font-family:Arial;}
+.bke-Verdana {font-family:Verdana;}
+.bke-Tahoma {font-family:Tahoma;}
+
+/*******************************************************
+ * plugin - spechars
+ ******************************************************/
+.bke-specharsmenu td{width:25px;height:25px;}
+.bke-specharsmenu a{border:1px solid #EEEEEE;cursor:pointer;height:20px;width:20px;line-height:20px;color:#000;display:block;text-align:center;}
+.bke-specharsmenu a:hover{background-color:#ECF1F7;border:1px solid #AECFF7;}
+

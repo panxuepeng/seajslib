@@ -1,0 +1,18 @@
+/***************************************
+* hd-menu
+****************************************/
+.hd-menu{/*position:absolute;*/width:158px;font-size:12px; color:#333; background-color:#FFF; top:100px; left:100px; padding:2px; border:1px solid #CCC; font-family:Arial,SimSun,\5FAE\8F6F\96C5\9ED1;*width:150px;z-index:10;
+box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);}
+.hd-menu-body{background:#FFF url(images/sparator_v.png) repeat-y 26px; min-width:150px;*width:150px;}
+.hd-menu-item{position:relative; padding:1px; height:20px; cursor:pointer; line-height:20px; min-width:150px; border:1px solid transparent;_border-color:#F1F1F1;z-index:30;}
+.hd-menu-item:hover{background-color:#ecf1f7; border:1px solid #aecff7;}
+.hd-menu-item:hover  .hd-menu-icon{background-color:#ecf1f7; }
+
+.hd-menu-icon{background:#FFF url(images/icon_mce.gif) 20px 20px no-repeat;float:left; width:20px; height:20px; overflow: hidden; margin:0 0 1px; padding:0; border:none; display: inline-block !important;}
+.hd-menu-more {height:20px; overflow: hidden; width:20px;background-image:url(images/icon_mce.gif);background-position:-720px -40px;display: inline-block !important;float:right;}
+.hd-menu-label{float:left; line-height: 20px; height:20px; padding-left: 10px; padding-right: 20px; display: inline-block !important; overflow: hidden;}
+
+.hd-menu-separator{margin: 1px 0 2px; padding:0;height: 1px;}
+.hd-menu-separator-inner{border-bottom: 1px solid #E2E3E3;margin-left: 29px; margin-right: 1px;height:1px;line-height:1px;}
+.hd-menu-item .hd-menu { display:none;  position:absolute; left:150px; width:153px; border:1px solid #ccc;top:-1px; background-color:#FFF;z-index:100;}
+/*.hd-menu-item:hover .hd-menu-body { display:block; }*/

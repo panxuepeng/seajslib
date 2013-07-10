@@ -1,0 +1,51 @@
+﻿/* reset.css */
+html,body,h1,h2,h3,h4,h5,h6,p,hr,dl,dt,dd,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+code,kbd,pre,samp,tt{font-family:"Courier New",Courier,monospace}
+small{font-size:12px}
+a{text-decoration:none}
+body{word-wrap:break-word;word-break:break-all;line-height:25px;font-size:14px;color:#333;background:#FFFFFF;padding:5px;}
+a,a.innerlink,a.weblink{color:#0268cd;text-decoration:none}
+a:hover{text-decoration:underline}
+img{border:0}
+/* table */
+table{margin:10px;font-size:12px;background:#fafafa;border:1px solid #ccc;clear:both;border-collapse:collapse;border-spacing:0;empty-cells:show;}
+table td, table th{padding:5px 10px;margin:0;border: 1px solid #ccc; min-width:10px;}
+table td table{margin:0}
+table td table td{padding:2px}
+.table{margin:10px auto;color:#666;font-size:12px;border-collapse:collapse;border-spacing:0;empty-cells:show}
+.table th{background: #F7F7F7; border-top:2px solid #bbb;}
+.table td{background: #fafafa;}
+.table td .img{border: 0;background: none;padding: 0}
+p{display:block;padding:7px 0}
+hr{border:0;height:1px;*color:#fff}
+embed{border:1px dashed #FF4E4E;display:block;margin:0 auto}
+pre{margin:0.5em 0; padding:0.4em 0.6em; border-radius:8px; background:#f8f8f8; line-height:1.5em;clear:both;}
+/* only for iframe */
+a{color:blue;text-decoration:underline;}
+h2{font-size:16px;line-height:24px;font-weight:bold;background:#fafafa;border:1px solid #f0f0f0;padding:5px 10px 3px;display:block;clear:both;margin-bottom:5px;margin-top:10px !important}
+h3{font-weight:bold;margin:0;clear:both}
+.hdwiki_tmml{font-size:20px;border-bottom:1px dashed #9b9b9b;display:block;overflow:hidden;clear:both;float:none;margin:10px 0;padding: 0 0 5px;font-weight: bold}
+.hdwiki_tmmll{font-size:18px;font-weight:bold}
+/* plugin HdImage */
+.img{background:none repeat scroll 0 0 #FAFAFA;border:1px solid #CCCCCC;color:#666666;font-size:12px;padding:3px;text-align:center;overflow:hidden}
+.img strong{clear:both;display:block;font-size:12px;font-weight:normal;line-height:18px;padding-top:10px;color:#333333}
+.img strong sup{cursor:pointer;font-family:\5b8b\4f53;font-size:12px;color:#07C}
+.img_c{margin:0 auto}
+.img_l{clear:left;float:left;margin:5px 20px 5px 5px}
+.img_r{clear:right;float:right;margin:5px 5px 5px 20px}
+/* plugin hdwiki */
+.hdwiki_tmml{font-size:20px;border-bottom:1px dashed #9b9b9b;display:block;clear:both;float:none;margin:10px 0;padding: 0 0 5px;font-weight: bold}
+.hdwiki_tmmll{font-size:18px;font-weight:bold;display:block;clear:left;float:none}
+img.error{border:2px solid red}
+a.error{border-bottom:2px solid red}
+sup.refer{color:#3366cc;margin-left: 2px}
+
+/*
+td,th{padding:5px 10px;line-height:22px;min-width:15px;border:1px solid #DDD;}
+th{border-top:2px solid #BBB;background-color:#F7F7F7;}
+table td,table th{min-height:12px;}
+*/
+.bke-table-selected td,
+.bke-table-selected th{background-color : #edf5fa !important;}
+.bke-cell-selected{background-color : #edf5fa !important;}
+.bke-anchor{width:20px; height:20px; background-image:url(default/image/icon_mce.gif);background-position: -200px -2px;}

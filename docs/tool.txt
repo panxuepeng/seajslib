@@ -1,0 +1,26 @@
+组件库工具安装
+
+1、导出组件库svn
+    svn 地址 svn://svn.hudong.net/commonjs/trunk/jslib
+	如果提示没有权限，请向发邮件给宇芳索取
+	假设是 D:\hudong\commonjs\jslib
+	
+2、安装 nodejs
+	拿到安装文件，双击安装即可。
+	已在svn目录 tools/nodejs/node-v0.8.21-x86.msi
+	
+3、安装 Grunt 相关工具
+   1）打开命令提示符窗口
+   2）npm install -g grunt-cli
+   3）cd到组件库目录 D:\hudong\commonjs\jslib\lib
+   4）安装Grunt主程序 npm install grunt --save-dev
+   5）安装模板生成器 npm install -g grunt-init
+   5）安装 grunt 任务插件  npm install grunt-contrib-clean grunt-contrib-concat grunt-contrib-uglify grunt-contrib-jshint grunt-contrib-qunit grunt-contrib-watch
+
+4、创建一个 hello 组件
+   1）mkdir hello (D:\hudong\commonjs\jslib\lib\hello)
+   2）cd hello (进入目录 D:\hudong\commonjs\jslib\lib\hello)
+   3）根据组件模板创建默认文件 grunt-init ../module-tpl，会以命令行形式问一些问题，直接回车即可
+   4）至此，这个默认的组件就创建完毕了，执行 grunt 命令，可以看到代码审查、单元测试、压缩等一些信息
+
+5、下面就看你得了 ...

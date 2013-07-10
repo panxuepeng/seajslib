@@ -1,0 +1,2 @@
+文档地址：http://docs.highcharts.com/#home
+http://api.highcharts.com/highcharts

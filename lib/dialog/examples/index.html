@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dialog demo</title>
+  
+<title>Dialog 2.5</title>
+<style>
+p, li{line-height:22px;}
+p{text-indent:1cm;}
+.w600 {width:600px;}
+.w700 {width:700px;}
+.w800 {width:800px;}
+.list2{list-style-type:lower-alpha;}
+li{margin-top:10px;}
+.f12{font-size:12px;}
+pre{font-size:14px;}
+
+</style>
+</head>
+<body>
+<div class="w700">
+
+<h2><a name="top"></a>目录</h2>
+<ol id="table-of-content">
+</ol>
+<ul>
+<li><h3>使用方法</h3>
+	<ol>
+	<li>快速使用
+		<ol class="list2">
+		<li>$.dialog.tip('窗口不显示确定和取消按钮');<a href="#" onclick="$.dialog.tip('窗口不显示确定和取消按钮');return false">预览</a></li>
+		<li>$.dialog.alert('窗口只显示确定按钮');<a href="#" onclick="$.dialog.alert('窗口只显示确定按钮');return false">预览</a></li>
+		<li>$.dialog.confirm('窗口显示确定和取消两个按钮');<a href="#" onclick="$.dialog.confirm('窗口显示确定和取消两个按钮');return false">预览</a></li>
+		</ol>
+	</li>
+	<li>常规使用
+		<pre>
+var dialog = $.dialog({
+	id: 'mydialog',
+	title: '标题',
+	content: '&lt;div style="width:400px;height:200px;"&gt;...&lt;/div&gt;',
+	callback: function( dialog ){
+		//...
+	},
+	overlay: {
+		opacity: 0.1
+	}
+});
+</pre><a href="#" onclick="demo2();return false;">预览</a>
+	</li>
+	<li>同时显示多个弹出窗口
+		<a href="#" onclick="demo3();return false;">预览</a>
+	</li>
+	<li>通过给超链接添加指定属性data-toggle="dialog"，点击超链接后，使用ajax方式加载弹出窗口内容。
+		<a href="data.txt" data-toggle="dialog">预览(ajax)</a>
+		<a href="#data10" data-toggle="dialog">预览(selector)</a>
+		<span id="data10">你好啊</span>
+	</li>
+	<li>自定义参数<br />
+<textarea style="width:600px;height:300px;" id="custom-option">
+$.dialog({
+	id: 'default',
+	title: '标题',
+	type: 'html', // html img ajax iframe selector
+	content: '',
+	align: 'left',
+	valign: 'center',
+	width: 340,
+	height: 150,
+	fixedSize: false, // 窗口大小自适应内容，并自动根据内容重新定位窗口
+	offsetX: 0, // 水平方向位置调整，负值会使窗口偏左
+	offsetY: 0, // 垂直方向位置调整，负值会使窗口偏上
+
+	// 中间center 中上center-top 中下center-bottom
+	// 右下right-bottom 左上left-top
+	position: 'center',
+	fixed: true, // 固定，不随屏幕滚动
+	draggable: true, // 是否可拖动，拖动功能依赖于 jquery-dragdrop.js
+
+	zIndex: 0, // 默认为0，除非要使用置顶窗口，否则不要使用此设置
+	autoClose: 0, // 自动关闭
+
+	// 遮罩层
+	overlay: {
+		opacity: 0.2, // 透明度 0 - 1
+		bgColor: '#000' // 背景色，默认黑色
+	},
+
+	// 光标默认位置，在输入框的开始或末尾
+	focusInput: '', // '', start, end
+
+	// 事件
+	one: null, // 仅首次显示后执行
+	callback: null, // 弹窗每次显示完成后执行
+	onclose: null,
+	oncancel: null,
+	onok: null,
+	onclick: null,
+	onmouseover: null,
+	onmouseout: null,
+
+	textOk:'确 定',
+	textCancel:'取 消',
+
+	// 正在加载的提示信息
+	loadding: 'loadding...',
+	loadErrorInfo:'加载失败',
+
+	// 皮肤
+	skin: 'hudong', //默认有：default noborder bluebox greybox xiaobaike hudong
+
+	// 自定义样式，方便在不更换皮肤的情况下进行样式微调
+	// style: {title: {key:value, key2:value2, .....}}
+	style: {
+		'outter-wrap':'',
+		'inner-wrap':'',
+		'title':'',
+		'content':'',
+		'bottom':'',
+		'ok':'',
+		'cancel':'',
+		'close':'',
+		'error':'',
+		'success':'',
+		'status':''
+	}
+});
+</textarea><br />
+	为了方便测试，可以修改上面的参数，
+	然后 <a href="#" onclick="demo5();return false;">预览</a> 效果
+	</li>
+	</ol>
+</li>
+<li><h3>兼容测试</h3>
+	可以在不同的浏览器测试弹窗，另外就是body标签的样式可能会影响到弹窗的定位。主要有三种情况。不推荐在body标签上设置这些样式（width:950px; margin:0 auto;position:relative;）。
+	<ol>
+	<li>普通情况 <a href="dialog-1.html" target="_target">预览</a></li>
+	<li>
+	body{width:950px; margin:0 auto;}
+	<a href="dialog-2.html" target="_target">预览</a></li>
+	<li>
+	body{width:950px; margin:0 auto;position:relative;}
+	<a href="dialog-3.html" target="_target">预览</a></li>
+	</ol>
+</li>
+<li><h3>详细配置</h3>
+<pre>
+id: 'default',
+title: '',
+type: 'html', // html img ajax iframe selector
+content: '',
+width: 340,
+height: 150,
+fixedSize: false, // 窗口大小自适应内容，并自动根据内容重新定位窗口
+offsetX: 0, // 水平方向位置调整，负值会使窗口偏左
+offsetY: 0, // 垂直方向位置调整，负值会使窗口偏上
+
+// 中间center 中上center-top 中下center-bottom 右下right-bottom 左上left-top
+position: 'center',
+fixed: true, // 固定，不随屏幕滚动
+draggable: false, // 是否可拖动，拖动功能依赖于 jquery-dragdrop.js
+
+// 当弹窗不指定具体的zIndex值时，使用全局的 $.dialog.config.zIndex
+// 使用全局的zIndex值和使用指定的zIndex的区别是
+// 全局zIndex：弹窗zIndex值会在窗口被点击时加1
+// 私有zIndex：固定值，永远不变，适合置顶窗口使用
+zIndex: 0, // 默认为0，除非要使用置顶窗口，否则不要使用此设置
+autoClose: 0, // 自动关闭
+
+// 遮罩层
+overlay: {
+	opacity: 0.2, // 透明度 0 - 1
+	bgColor: '#000' // 背景色，默认黑色
+},
+
+// 光标默认位置，在输入框的开始或末尾
+focusInput: '', // '', start, end
+
+// 事件
+one: null, // 仅首次显示后执行
+callback: null, // 弹窗每次显示完成后执行
+onclose: null,
+oncancel: null,
+onok: null,
+onclick: null,
+onmouseover: null,
+onmouseout: null,
+
+textOk:'确 定',
+textCancel:'取 消',
+
+// 正在加载的提示信息
+loadding: 'loadding...',
+loadErrorInfo:'加载失败',
+
+// 皮肤
+skin: 'default', //默认有三种：default bluebox greybox
+
+// 自定义样式，方便在不更换皮肤的情况下进行样式微调
+// style: {title: {key:value, key2:value2, .....}}
+style: {
+	'outter-wrap':'',
+	'inner-wrap':'',
+	'title':'',
+	'content':'',
+	'bottom':'',
+	'ok':'',
+	'cancel':'',
+	'close':'',
+	'error':'',
+	'success':'',
+	'status':''
+}</pre>
+</li>
+<li><h3>弹窗的属性和方法</h3>
+var dialog = $.dialog({...});<br />
+	属性列表：
+	<ol>
+	<li>dialog.panel<br />
+	panel是弹窗最外层div节点的jQuery封装对象，可利用它来查找窗口里面自己的标签，如dialog.panel.find('input[name=title]');
+	</li>
+	<li>dialog.option<br />
+	弹窗的配置对象
+	</li>
+	<li>dialog.closed<br />
+	弹窗的打开或关闭状态
+	</li>
+	</ol><br/>
+	实例方法：<br />
+	这些方法都非常简单，可能都不需要再解释什么，个别的简单说一下。
+	<ol>
+	<li>dialog.show()</li>
+	<li>dialog.hide()</li>
+	<li>dialog.close()</li>
+	<li>dialog.ok()<br />
+	点击确定按钮，会执行此方法。
+	</li>
+	<li>dialog.setContent(content[, type])<br />
+	修改弹窗的内容，type: html(默认值) ajax img iframe
+	</li>
+	<li>dialog.status(html)<br />
+	窗口左下方显示提示信息，灰色字体
+	</li>
+	<li>dialog.success(html)<br />
+	窗口左下方显示成功信息，绿色字体
+	</li>
+	<li>dialog.error(html)<br />
+	窗口左下方显示错误信息，红色字体
+	</li>
+	<li>dialog.clear()<br />
+	清楚所有状态信息
+	</li>
+	<li>dialog.autoClear()<br />
+	延迟3秒清楚所有状态信息
+	</li>
+	<li>dialog.lock()<br />
+	锁定窗口，锁定后不能触发关闭、确定、取消按钮的事件。
+	</li>
+	<li>dialog.unlock()<br />
+	解锁</li>
+	</ol><br/>
+	静态方法：
+	<ol>
+	<li>$.dialog.config(config)<br />
+	设置全局皮肤<br />
+	$.dialog.config({skin:'hudong'});
+	</li>
+	<li>$.dialog.get(id)<br />
+	获取窗口对象，返回值是 dialog 对象
+	</li>
+	<li>$.dialog.close([id])</li>
+	<li>$.dialog.tip(content[, title])<br />
+	弹出提示信息，没有确定和取消按钮
+	</li>
+	<li>$.dialog.alert(content[, onok, title])<br />
+	弹出警告信息，显示确定按钮。可以在onok参数绑定点击确定按钮后要执行的事件。
+	</li>
+	<li>$.dialog.confirm(content[, onok, title])<br />
+	弹出确认信息，显示确定和取消按钮。
+	</li>
+	<li>$.dialog.addStyle(style)<br />
+	添加自定义皮肤。如	
+<pre>
+// 添加默认皮肤 default
+$.dialog.addSkin('.default .jqd-inner-wrap{border:2px solid #009AD9;border-radius:6px;box-shadow:0 0 8px #06C;}\
+.default .jqd-title{background-color:#009AD9;border-bottom:1px solid #E5E5E5;color:#FFFFFF;font-weight:bold;}\
+.default .jqd-close{width:15px;height:20px;top:0px;right:5px;}\
+.default .jqd-button button{width:80px;height:27px;cursor: pointer;font-size:12px;line-height:100%;_line-height:26px;}');
+</pre>
+	</li>
+	</ol>
+</li>
+<li><h3>常见问题</h3>
+	<ol>
+	<li>能否自定义弹窗的样式？<br />
+	可以，参考$.dialog.addSkin(name, skin)方法。
+	</li>
+	<li>弹窗是否可以拖动？<br />
+	是否可以拖动，由参数draggable指定，true或false。注意，拖动功能依赖于 jquery-dragdrop.js
+	</li>
+	<li>当内容实际高度高于浏览器窗口时，会怎样？<br />
+	如果弹窗不跟随屏幕滚动，则弹窗以实际高度显示，弹窗顶部和浏览器窗口顶部对齐。如果弹窗使用了fixed属性，即不跟随屏幕滚动，则弹窗会自动显示滚动条，弹窗本身的高度保持和浏览器窗相同。
+	</li>
+	<li>弹窗能否自动关闭？<br />
+	可以，有参数里面的autoClose属性指定，单位是毫秒。如$.dialog({..,autoClose:3000,..})
+	</li>
+	<li>弹窗的大小是否会自动适应内容的大小？<br />
+	多数情况下会，但有时你可能不希望这样。首先窗口参数里面有width和height属性，如果要弹窗的内容是html结构，除非指定fixedSize: true，否则窗口会适应内容的大小，如果不希望这样可以指定fixedSize: true阻止这一行为。如果弹窗的内容是纯文本内容，则在指定的宽高可以满足文本空间的情况下，弹窗使用指定的宽高值，如文本内容较多，则窗口会适应内容的大小。
+	</li>
+	<li>弹窗有遮罩层吗？<br />
+	有，通过参数overlay设置。
+	</li>
+	<li>我想在弹窗显示后执行一个事件，应该怎么做？<br />
+	参数callback在弹窗每次显示后都会执行，参数one在弹窗首次显示时执行一次。
+	</li>
+	<li>弹窗能否打开一个url的远程内容？<br />
+	可以。
+	</li>
+	<li>弹窗的html结构是否可以随意更改？<br />
+	不可以，应该也不需要。
+	</li>
+	</ol>
+</li>
+<li><h3>注意</h3>
+	<ol>
+	<li>不要过度使用弹窗，能不使用就不使用，尤其避免弹窗上面再弹窗。</li>
+	<li>如要多处使用，最好进行二次封装统一调用，以便后续维护和调整。</li>
+	</ol>
+</li>
+</ul>
+</div>
+
+<script>
+
+</script>
+
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/dialog', function( dialog ){
+
+	// 全局皮肤
+	$.dialog.config({skin:'hudong'});
+
+	function tableOfContent(){
+		var html = '';
+		$("h3").each(function(i, el){
+			var o = $(el);
+			html += '<li><a href="#'+ i +'">'+o.text()+'</a></li>';
+			o.before("<a name="+i+"></a>").append(' <a href="#top" class="f12">回目录</a>');
+		});
+		$("#table-of-content").html(html);
+	}
+	
+	tableOfContent();
+});
+
+function demo2(){
+	var dialog = $.dialog({
+		id: 'mydialog',
+		title: '标题',
+		content: '<div style="width:400px;height:200px;">...</div>',
+		callback: function( dialog ){
+			alert(3);
+		},
+		overlay: {
+			opacity: 0.1
+		}
+	});
+}
+
+function demo3(){
+	var dialog = $.dialog({
+		id: 'mydialog1',
+		model:'together',
+		title: '工具栏',
+		position: 'left-top',
+		zIndex:999999,
+		style:{
+			close: {display:'none'},
+			bottom: {display:'none'}
+		},
+		content: '<div style="width:120px;height:240px;">...</div>',
+		overlay: false
+	});
+	
+	$.dialog({
+		id: 'mydialog2',
+		position: 'center',
+		model:'',
+		title: '标题',
+		content: '<div style="width:700px;height:400px;">...</div>',
+		overlay: {
+			opacity: 0.1
+		}
+	});
+	
+	setTimeout(function(){
+		$.dialog({
+			id: 'mydialog3',
+			position: 'center',
+			title: '标题2',
+			model:'alone',
+			content: '<div style="width:700px;height:400px;"><a style="cursor:hand" onclick="dialog()">dialog4</a></div>',
+			overlay: {
+				opacity: 0.1
+			}
+		});
+	}, 2000);
+}
+
+function dialog(){
+	$.dialog({
+		id: 'mydialog4',
+		position: 'center',
+		title: '标题3',
+		width:500,
+		height:300,
+		model:'alone',
+		content: '<div style="width:700px;height:400px;border:1px solid red;">你好</div>',
+		overlay: {
+			opacity: 0.1
+		}
+	});
+}
+
+
+function iframe(){
+	$.dialog({
+		id: 'mydialog4',
+		position: 'center',
+		title: '标题3',
+		width:500,
+		height:300,
+		model:'alone',
+		type: 'iframe',
+		content: 'http://www.hudong.com',
+		overlay: {
+			opacity: 0.1
+		},
+		callback: function(){
+			alert(30);
+		}
+	});
+}
+
+function demo5(){
+	try{
+		eval( $("#custom-option").val() );
+	}catch(e){
+		alert('参数有误，请检查');
+	}
+}
+
+
+</script>
+</body>
+</html>

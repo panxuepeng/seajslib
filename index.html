@@ -1,21 +1,45 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Seajslib by panxuepeng</title>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8"> 
+<title>JavaScript 通用组件库</title>
+<link media="screen" rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+</head>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<body>
+<div id="sidebar" class="interface" data-toggle="fixed" data-type="ontop">
+    <a class="toc_title">JavaScript 组件库</a>
+    <ul class="toc_section">
+      <li><a href="#">简介</a></li>
+      <li><a href="#usage1">超级使用方法</a></li>
+      <li><a href="#usage2">普通使用方法</a></li>
+      <li><a href="#usage3">组件开发注意事项</a></li>
+      <li><a href="#usage4">工具安装说明</a></li>
+      <li><a href="#usage5">组件库架构</a></li>
+      <li><a href="#todo">更新计划</a></li>
+      <li><a href="#changelog">更新日志</a></li>
+    </ul>
+	<a class="toc_title" href="#list">组件列表</a><ul id="liblist" class="toc_section">
+      <li>正在加载...</li>
+    </ul>
+</div>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-   hello
-    
-  </body>
+<div class="container">
+	<div id="markdown-Readme"></div>
+	<div id="markdown-use"></div>
+	<div id="markdown-changelog"></div>
+	<div id="markdown-libs"></div>
+</div>
+
+<script src="lib/jquery/jquery-1.6.4.min.js"></script>
+
+<script src="./dist/seajs/2.1.0/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('config/1.1.1/config', function(){
+	seajs.use('./assets/js/main');
+})
+</script>
+<a href="#" data-toggle="fixed" data-type="onright" data-right="10" data-bottom="80">返回顶部</a>
+</body>
 </html>

@@ -1,0 +1,64 @@
+gruntjs	——关键字：自动化
+	你可以使用grunt以自动化的方式，用最少的时间完成任何事情
+	在不得不执行很多重复任务的时候，比如压缩、编译、单元测试、审查代码等
+	grunt能使你简单地做很少的事情就能够完成
+	在你配置好之后，任务的运行可以为你和你的团队做那些重复的事情不需要花任何精力
+	如果想用grunt发布自己的grunt插件到npm上，是很容易的
+一、安装：
+1，预安装：nodejs，npm
+2，安装grunt
+	npm uninstall -g grunt
+		清除已经在全局上安装过的grunt，以前没有安装过grunt的可以绕过
+	npm install -g grunt-cli
+		在全局上安装grunt-cli，可以执行所有版本的grunt，在命令行的各个文件夹下均可以执行grunt命令
+	到nodejs的根目录下，执行 npm install grunt --save-dev
+		将grunt的核心装到node下面，让grunt-cli执行时可以找到grunt的核心
+3，安装grunt-init模板生成器
+	npm install -g grunt-init
+		将grunt-init命令安装到全局，可以再各个文件夹下自动加载grunt模板
+4，安装grunt插件
+	在要创建新项目的文件夹下安装（grunt暂时不支持安装到全局，应该会有改进）
+	清理文件：npm install grunt-contrib-clean --save-dev
+	合并文件：npm install grunt-contrib-concat --save-dev
+	压缩文件：npm install grunt-contrib-uglify --save-dev
+	审查代码：npm install grunt-contrib-jshint --save-dev
+	单元测试：npm install grunt-contrib-qunit --save-dev
+	自动监视：npm install grunt-contrib-watch --save-dev
+	
+	全体安装：
+	npm install grunt-contrib-clean grunt-contrib-concat grunt-contrib-uglify grunt-contrib-jshint grunt-contrib-qunit grunt-contrib-watch
+	
+5，下载grunt模板如：grunt-init-jquery
+	git clone git@github.com:gruntjs/grunt-init-jquery.git ~/.grunt-init/jquery
+	也可以直接下载到指定目录下，记住目录位置即可。
+	目前组件库当中的 lib/module-tpl 就是默认的模板
+二、生成模板：
+1，到要新建工程的目录下，执行grunt-init {$init-template-path}
+	空格后面为之前下载模板路径位置
+三、执行grunt：
+1，使用grunt命令
+	注册任务：
+		在Gruntfile中
+		grunt.loadNpmTasks('grunt-contrib-clean');
+			加载插件
+		grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+			注册插件，在执行grunt命令时执行
+		grunt 命令时，执行default任务，加参数可执行对应参数的任务列表
+	jshint：
+		grunt jshint 命令时审查代码
+	qunit：
+		grunt qunit 命令时单元测试
+	concat：
+		grunt concat 命令时合并源码文件
+	uglify：
+		grunt uglify 命令时压缩源码文件
+	clean：
+		grunt clean 命令时清理dist目录
+	watch：
+		grunt watch 命令时启动监视，当文件发生修改时（保存），会自动执行grunt命令
+			使用ctrl+c退出
+ps，使用qunit
+	在test目录的html文件中加入html代码
+	在test目录的js文件中添加测试用例
+	如果不是grunt生成的文件，需添加script标签引用对应的测试用例文件
+	可以使用事件绑定等浏览器（用户操作行为）事件，测试时用代码触发即可

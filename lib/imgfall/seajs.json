@@ -1,0 +1,26 @@
+{
+  "name": "imgfall",
+  "title": "Imgfall",
+  "description": "a component show picture with fall effect",
+  "version": "1.0.0",
+  "homepage": "https://github.com/daixianfeng/imgfall",
+  "author": {
+    "name": "daixianfeng",
+    "email": "daixianfeng@hudong.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/daixianfeng/imgfall.git"
+  },
+  "bugs": "https://github.com/daixianfeng/imgfall/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/daixianfeng/imgfall/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.4.2"
+  },
+  "keywords": []
+}

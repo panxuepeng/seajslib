@@ -1,0 +1,23 @@
+{
+  "name": "hello",
+  "title": "Hello",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/panxuepeng/hello",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/hello.git"
+  },
+  "bugs": "https://github.com/panxuepeng/hello/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/hello/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

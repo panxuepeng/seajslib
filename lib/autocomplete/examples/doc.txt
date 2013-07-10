@@ -1,0 +1,2 @@
+文档地址：
+https://github.com/dyve/jquery-autocomplete/blob/master/doc/jquery.autocomplete.txt

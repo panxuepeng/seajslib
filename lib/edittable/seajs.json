@@ -1,0 +1,23 @@
+{
+  "name": "edittable",
+  "title": "Edittable",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/panxuepeng/edittable",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/edittable.git"
+  },
+  "bugs": "https://github.com/panxuepeng/edittable/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/edittable/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

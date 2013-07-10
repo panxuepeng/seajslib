@@ -1,0 +1,23 @@
+{
+  "name": "slidesjs",
+  "title": "SlidesJS",
+  "description": "The best jQuery plugin ever.",
+  "version": "3.0.4",
+  "homepage": "https://github.com/panxuepeng/slidesjs",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/slidesjs.git"
+  },
+  "bugs": "https://github.com/panxuepeng/slidesjs/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/slidesjs/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.7.1+"
+  },
+  "keywords": []
+}

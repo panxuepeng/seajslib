@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calendar demo</title>
+</head>
+
+<body>
+<pre>
+&lt;input type="text" data-toggle="calendar" data-beginyear="2010" data-endyear="2012" /&gt;
+</pre>
+<input type="text" data-toggle="calendar" data-beginyear="2010" data-endyear="2012" />
+
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/calendar', function( Calendar ){
+  //new Calendar(2000,2019,0,'-','yyyy-MM-dd','yMd').show( $("#datepicker")[0] );
+});
+</script>
+
+</body>
+</html>

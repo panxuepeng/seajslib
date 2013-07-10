@@ -1,0 +1,23 @@
+{
+  "name": "markdown",
+  "title": "Markdown",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/panxuepeng/markdown",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/markdown.git"
+  },
+  "bugs": "https://github.com/panxuepeng/markdown/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/markdown/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

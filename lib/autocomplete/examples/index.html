@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Autocomplete demo</title>
+</head>
+
+<body>
+<div style="height:500px;"></div>
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/autocomplete', function(){
+
+/*
+ *通过给input指定一个id，然后$(#id).autocomplete(url, [options]);
+ */
+//通过search.php返回数据
+$("#ac1").autocomplete('search.php?output=json&key=value', {
+        minChars: 1,
+		remoteDataType: 'json'
+});
+
+
+//通过数组指定数据
+$("#ac3").autocomplete({
+		minChars: 1,       //显示几个字符后有提示,即显示第一个字符后，开始有提示
+		delay: 100,        //按下鼠标后，多上时间显示，默认400毫秒
+		maxItemsToShow: 2,   //显示的数量，默认是10
+        data: [            //通过数组指定数据
+            ['平静', 1],
+            ['平安', 2],
+            ['平均', 3],
+            ['prume', 4],
+            ['Doyenn du Comice', 5],
+			['audit', 6],
+			['audicence', 7]
+        ]
+    });
+
+});
+</script>
+
+<h3>通过服务器端提供数据,可通过输入great测试下效果</h3>
+<form>
+    <input type="text" id="ac1">
+</form>
+
+<h3>直接通过数组显示数据,可输入“平"或者'a'测试</h3>
+<form>
+    <input type="text" id="ac3">
+</form>
+<p>
+具体请参考 <a href="https://github.com/dyve/jquery-autocomplete/blob/master/doc/jquery.autocomplete.txt">https://github.com/dyve/jquery-autocomplete/blob/master/doc/jquery.autocomplete.txt</a>
+</p>
+<div style="height:500px;"></div>
+</body>
+</html>

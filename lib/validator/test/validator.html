@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Validator Test Suite</title>
+<link rel="stylesheet" href="../../qunit/src/qunit.css" />
+</head>
+
+<body>
+<script src="../../jquery/jquery-loader.js"></script>
+<script src="../../seajs/src/seajs.js" id="seajsnode"></script>
+<script src="../../qunit/src/qunit.js"></script>
+<!--
+ 2013-04-09
+ qunit 本来是希望通过seajs的方式引入进来，
+ 但是在命令行下不能正常执行，报这个错误
+ Warning: PhantomJS timed out, possibly due to a missing QUnit start() call. 
+ 目前，只能在页面上直接引入进来。
+-->
+<script src="./test.js"></script>
+
+<div id="qunit"></div>
+<div id="qunit-fixture">
+	<span>lame test markup</span>
+	<span>normal test markup</span>
+	<span>awesome test markup</span>
+</div>
+</body>
+</html>

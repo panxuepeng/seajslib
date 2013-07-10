@@ -1,0 +1,23 @@
+{
+  "name": "fixed",
+  "title": "Fixed",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.4.0",
+  "homepage": "https://github.com/Administrator/fixed",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Administrator/fixed.git"
+  },
+  "bugs": "https://github.com/Administrator/fixed/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Administrator/fixed/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

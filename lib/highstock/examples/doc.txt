@@ -1,0 +1,2 @@
+http://docs.highcharts.com/#home
+http://api.highcharts.com/highstock

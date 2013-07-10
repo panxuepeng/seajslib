@@ -1,0 +1,23 @@
+{
+  "name": "selectlist",
+  "title": "Selectlist",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Administrator/selectlist",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Administrator/selectlist.git"
+  },
+  "bugs": "https://github.com/Administrator/selectlist/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Administrator/selectlist/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

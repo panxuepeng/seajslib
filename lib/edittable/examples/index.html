@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Edittable demo</title>
+  
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+<style>
+table {color:#666;margin:10px; font-size:12px; background:#fafafa; border:1px solid #ccc; clear:both;border-collapse:collapse;border-spacing:0;empty-cells:show;}
+th{border-top:2px solid #BBB;background-color:#F7F7F7;font-weight:bold;}
+td,th{border:1px solid #CCC;padding:5px;height:20px;line-height:20px;}
+</style>
+</head>
+
+<body>
+
+
+<div style="width:800px;margin:20px;">
+	<h1>使用说明:</h1>
+	<h2>演示</h2>
+	<div class="source">
+<pre>
+使用比较简单
+
+&lt;table id="test-table" class="jqe-table" border="1" bordercolor="#CCC" cellpadding="5"&gt;
+&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;th width="20" <b>grid="uid"</b>&gt;ID&lt;/th&gt;
+		&lt;th width="150" <b>grid="username"</b>&gt;用户名&lt;/th&gt;
+		&lt;th width="150" <b>grid="usertype"</b>&gt;类型&lt;/th&gt;
+		&lt;th width="200" <b>grid="comment"</b>&gt;备注&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;潘雪鹏&lt;/td&gt;
+		&lt;td&gt;普通&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;script&gt;
+$("#test-table").editTable(<b>{
+	username: {url:"save.php", type:"text"},
+	usertype: {url:"save.php", type:"select", values:{"1":"普通", "2":"中级", "3":"高级"}},
+	comment: {url:"save.php", type:"textarea"}
+}, 'uid'</b>);
+&lt;/script&gt;
+</pre>
+	</div>
+	<div class="demo">
+	效果：
+		<table id="test-table" class="jqe-table" border="1" bordercolor="#CCC" cellpadding="5">
+		<tbody>
+			<tr>
+				<th width="20" grid="uid">ID</th>
+				<th width="150" grid="username">用户名</th>
+				<th width="150" grid="usertype">类型</th>
+				<th width="400" grid="comment">备注</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>11</td>
+				<td>普通</td>
+				<td>实时编辑的类型，默认为单行文本框，取值：text(默认) textarea select</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>11</td>
+				<td>普通</td>
+				<td>实时编辑的类型，默认为单行文本框，取值：text(默认) textarea select2</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	
+	<h2>详细配置</h2>
+	<div class="source">
+<pre>
+前四个参数是必选项，其他是可选项。
+
+defaults = {
+	<b>url</b>: '', // 保存时，提交到那个url地址
+	<b>id</b>: 'id',   // 唯一标识，用于保存的唯一条件
+	<b>type</b>: 'text', // 实时编辑的类型，默认为单行文本框，取值：text(默认) textarea select
+	<b>values</b>: null, // 实时编辑类型为下拉列表框、复选框、单选框时的选项，目前仅支持下拉列表
+	method: 'GET', // 保存表单提交方式 GET(默认) POST
+	dataType: 'json', // 返回值的数据类型，json(默认) html text xml
+	postData: {     // 保存时需要提交的数据
+		itemid: 0, // 用于构造SQL使用，大致如 "UPDATE table SET key='$value' WHERE id=$itemid"
+		key: '', //key, 如 username
+		value: '', // 修改后的值，以value参数发送
+		ajax: 1 // 默认发送ajax=1参数，告诉服务器当前是 ajax 请求
+	},
+	action: "dblclick", // dblclick(默认)：双击编辑， click：点击编辑
+	showError: true, // 是否提示错误信息，默认alert方式弹出
+	
+	// 执行成功后的回调函数
+	callback: function( data ){
+		var msg = "";
+		// 注意：typeof null == object
+		if( data && typeof data === "object" ){
+			// 默认期望 
+			// data: {status: 1, msg: ''}
+			// data: {status: 0, msg: '参数错误'}
+			
+			if( typeof data.status != "undefined" ){
+				if( data.status == 1 ) {
+					// 成功，什么也不做
+				}else{
+					// 失败，提示错误
+					if(data.msg) {
+						msg = data.msg;
+					}
+				}
+			}
+		}
+		return msg;
+	}
+}
+</pre>
+	</div>
+
+	<h2>方法</h2>
+	<div class="source">
+	$.editTable.setDefaults(option);
+	</div>
+	<div class="demo">
+	实例：
+<pre>
+$.editTable.setDefaults({
+	url: 'save.php',
+	type: 'select'
+});</pre>
+通过修改全局设置，可以简化使用，如下，可能不再需要设置url项，如和全局指定的默认值不同，可以单独设置。
+<pre>
+$("#test-table").editTable({
+	username: {type:"text"}, // 省略了url、id 项
+	usertype: {values:{"1":"普通", "2":"中级", "3":"高级"}}, // 省略了url、id 项
+	comment: {url:"comment.php", id:"commentid", type:"textarea"} // 单独指定
+});
+</pre>
+	</div>
+	<br>
+	<div class="source">
+	$.editTable.setDefault(key, value);
+	</div>
+
+	<div class="demo">
+	实例：<br />
+	$.editTable.setDefaults('url', 'save.php');<br />
+	$.editTable.setDefaults('type', 'select');
+	</div>
+</div>
+
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/edittable', function( edittable ){
+	$("#test-table").editTable({
+		username: {url:"save.php", type:"int"},
+		usertype: {url:"save.php", type:"select", values:{"1":"普通", "2":"中级", "3":"高级"}},
+		comment: {url:"save.php", type:"textarea", isEditable: function(text){ if(text.indexOf('select2')>0) return 1}}
+	}, 'uid');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "plupload",
+  "title": "Plupload",
+  "description": "The best jQuery plugin ever.",
+  "version": "1.5.6",
+  "homepage": "https://github.com/panxuepeng/plupload",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/plupload.git"
+  },
+  "bugs": "https://github.com/panxuepeng/plupload/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/plupload/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

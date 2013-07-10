@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap",
+  "title": "Bootstrap",
+  "description": "The best jQuery plugin ever.",
+  "version": "2.3.1",
+  "homepage": "https://github.com/panxuepeng/bootstrap",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/bootstrap.git"
+  },
+  "bugs": "https://github.com/panxuepeng/bootstrap/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/bootstrap/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Slide demo</title>
+  <style type="text/css">
+	*{margin:0;padding:0;}
+	li { list-style:none;}
+	.clear {clear:both;}
+	.slide {position:relative;};
+	li {margin:0;padding:0;}
+
+
+	#slide5 .nav {position:absolute; bottom:0px; right:0px;z-index:100; width:400px;height:30px;text-align:center;}
+	#slide5 { width:400px;height:250px;overflow:hidden;}
+	#slide5 .nav span {display:inline-block;width:21px;height:21px;line-height:21px;background-color:#DDD;text-align:center;margin:3px 3px 3px 0;cursor:pointer;}
+	#slide5 .nav span.current {background-color:red;}
+
+
+  </style>
+</head>
+
+<body>
+
+ <div id="slide5" class="slide" data-playtype="sideslip" data-timeout="3000">
+
+	<div class="item"><img src="images/1.jpg" width="400" height="250" alt="" />
+	<br />
+	<p><a href="">1111111111</a></p>
+	</div>
+	<div class="item" style="display:none;"><img src="images/2.jpg" width="400" height="250" alt="" />
+	<br />
+	<p><a href="">2222222</a></p>
+	</div>
+	<div class="item" style="display:none;"><img src="images/3.jpg" width="400" height="250" alt=""/>
+	<br />
+	<p><a href="">3333333333</a></p>
+	</div>
+	<div class="item" style="display:none;"><img src="images/4.jpg" width="400" height="250" alt=""/>
+	<br />
+	<p><a href="">444444444</a></p>
+	</div>
+	<div class="item"><img src="images/5.jpg" width="400" height="250" alt="" />
+	<br />
+	<p><a href="">555555555555</a></p>
+	</div>
+	<div class="item" style="display:none;"><img src="images/6.jpg" width="400" height="250" alt="" />
+	<br />
+	<p><a href="">666666666666</a></p>
+	</div>
+	<div class="item" style="display:none;"><img src="images/7.jpg" width="400" height="250" alt=""/>
+	<br />
+	<p><a href="">777777777777</a></p>
+	</div>
+  <div class="nav" ></div>
+ </div>
+
+
+
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/slide', function( $ ){
+	$( function () {
+		$('#slide5').slide ();
+	});
+});
+</script>
+
+</body>
+</html>

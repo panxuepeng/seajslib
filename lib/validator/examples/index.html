@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Validator demo</title>
+<style type="text/css">
+	label{width:180px}
+	.error{border:1px solid #f36;}
+</style>
+</head>
+
+<body>
+
+<h3>表单验证演示</h3>
+<form action="/" id="form">
+
+  <p>
+  文本，最多输入10个任意字符(maxlength="10")<br>
+  <label>Text: <input name="text" required="true" maxlength="10"></label>
+  
+  <p>
+  文本，最少输入4个任意字符(pattern=".{4,})<br>
+  <label>Text: <input name="text" required="true" pattern=".{4,}"></label>
+
+  <p>
+  文本，输入4 - 10个任意字符(maxlength="10" pattern=".{4,10}")<br>
+  <label>Text: <input name="text" required="true" maxlength="10" pattern=".{4,10}"></label>
+  
+  <p>
+  文本，如何在表单项验证失败时做点特殊的事情<br>
+  使用 error 事件即可，$('#form input[name=domain]').bind('error', function(event, element){alert("你想做啥都可以")});<br>
+  <label>Text: <input name="domain" required="true" maxlength="10" pattern=".{4,10}"></label>
+  
+  <p>
+  文本，输入4 - 10个(字母\数字\下划线\中划线)字符(maxlength="10" pattern="^[\w-]{4,10}$")<br>
+  <label>Text: <input name="text" required="true" maxlength="10" pattern="^[\w-]{4,10}$"></label>
+	  
+	
+  <p>
+  数字(type="number")<br>
+  <label>Number: <input type="number" required="number"></label>
+
+  <p>
+  数字范围[1-10](type="number" required="number" min="1" max="10")，min可以是负值<br>
+  <label>Number
+      <small>(1 &lt; value &lt; 10)</small>:
+      <input type="number" required="number" min="1" max="10"></label>
+
+  <p>
+  数字，范围(type="range" required="range" min="1" max="10")<br>
+  和上面的数字范围区别是，在标准浏览器(ie除外)下会显示成拖动滑块，而非输入框<br>
+  <label>Range
+      <small>(1 to 5)</small>:
+      <input type="range" required="range" min="1" max="5"></label>
+
+  <p>
+  数字，带步长(type="number" required="number" min="1" max="10" step="2")<br>
+  <label>Number with step
+      <small>(1 &lt; value &lt; 10, step === 2)</small>:
+      <input type="number" required="number" min="1" max="10" step="2"></label>
+  
+  <p><label>Email: <input type="email" required="email"></label>
+
+  <p><label>Url: <input type="url" required="url"></label>
+
+  <p><label>Tel: <input type="tel" required="tel"></label>
+
+  <p><label>Mobile: <input type="mobile" required="mobile"></label>
+
+  <p><label>Password: <input type="password" required="password"></label>
+
+  <p>
+  异步验证(data-url="data.php" data-method="getJSON" required="true")<br>
+  <label>
+  <input type="text" id="username" data-url="data.php" data-method="getJSON" data-event="checkUsername" required="true"></label>
+  （输入 ok 可以通过验证）
+  </p>
+
+  <p>
+  比如填写一项(data-aorb="a" required="true")(data-aorb="b" required="true")<br>
+  <label>A 或者 B:</label>
+      <input type="text" data-aorb="a" required="true">
+      <br />
+      <input type="text" data-aorb="b" required="true">
+  </p>
+
+  <p>
+  单选
+      <label><input type="radio" required="true" name="abc" value="A">[A]</label>
+      <label><input type="radio" required="true" name="abc" value="B">[B]</label>
+      <label><input type="radio" required="true" name="abc" value="C">[C]</label>
+
+  <p>自定义事件(data-event="eventname" required="true")<br>
+  <label>Custom Event: <input id="event" type="text" data-event="hello" required="true"></label>
+
+  <p><textarea placeholder="some text" required="true" data-error="textarea"></textarea></p>
+
+  <input type="submit" value="send"/>
+</form>
+
+<form action="/" id="form2">
+
+  <p><label>Custom Event: <input id="event2" type="email" data-event="hello" required="true"></label>
+
+  <input type="submit" value="send"/>
+</form>
+
+<script src="../../jquery/jquery-loader.js"></script>
+<script src="../../seajs/src/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/validator', function( ){
+	jQuery('#form').validator({
+		// 验证失败是给表单项添加到classname，默认是error
+		errorClass: 'error'
+		
+		// 指定classnaqme添加到父标签上
+		, isErrorOnParent: true
+		
+		// 表单在提交时，如果有验证失败，将调用此方法
+		// 参数 unvalidFields 是未通过验证的表单项列表
+		, submitError: function(unvalidFields){
+			$(unvalidFields).each(function(i, item){
+			
+			});
+			//return false; 将阻止表单提交
+		}
+		
+		// 所有的表单项，验证失败时都会执行这个方法
+		, inputError: function( $el ){
+			
+		}
+		
+		// 在表单提交前/后执行的方法
+		// 参数是表单项集合的jQuery对象
+		, before: function($items) {}
+		
+		// 如果没有验证失败的表单项，将执行after方法
+		// 如果after方法返回false，将阻止表单提交
+		, after: function($items) {return true}
+		
+	});
+	
+	$('#event').bind('before:hello', function(event, element){
+		//console.log('`before.hello` event trigger on $("#' + element.id + '")');
+	});
+
+	$('#username').bind('error', function(event, element){
+		//console.log(element);
+	});
+	
+	$('#form input[name=domain]').bind('error', function(event, element){
+		alert('做点啥都可以的');
+	});
+	
+	$('#username').bind('after:checkUsername', function(event, element){
+		//console.log(element);
+		
+		return false;
+	});
+
+	
+	// 第二个表单
+	/*
+	jQuery('#form2').validator({
+		submitError: function(unvalidFields){
+			$(unvalidFields).each(function(i,item){
+			  //console.log(item.$el[0])
+			});
+			
+			
+		}
+		, after: function(){
+			
+		}
+		, isErrorOnParent: true
+	});
+	
+	$('#event2').bind('after:hello', function(event, element){
+		//console.log('`after.hello` event trigger on $("#' + element.id + '")');
+		return false;
+	});
+	*/
+	
+	$('#event2').bind('error', function(event, element){
+		alert(2);
+		return false;
+	});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dialog-3</title>
+<style>
+body{width:950px; margin:0 auto;position:relative;}
+</style>
+</head>
+<body>
+<div style="height:300px;"></div>
+<div style="height:10000px;"></div>
+<script src="../lib/jquery-1.6.4.min.js"></script>
+<script src="../lib/jquery-dialog.js"></script>
+<script>
+var dialog = $.dialog({
+	id: 'ajax',
+	title: '提示',
+	skin: 'greybox',
+	content: '<div style="height:900px; width:800px;text-align:right;">0123456789</div>',
+	onok: function( dialog ){
+		dialog.close();
+	},
+	offsetY: -50
+}).show();
+
+setTimeout(function(){
+	// 状态信息
+	dialog.status('请稍等...');
+}, 1000);
+
+setTimeout(function(){
+	// 显示错误信息
+	dialog.error('错误信息。');
+}, 2000);
+
+setTimeout(function(){
+	// 显示错误信息
+	dialog.success('成功信息。');
+}, 3000);
+
+setTimeout(function(){
+	// 清除所有状态信息
+	dialog.clear();
+}, 4000);
+</script>
+</body>
+</html>

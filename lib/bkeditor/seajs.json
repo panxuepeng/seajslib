@@ -1,0 +1,23 @@
+{
+  "name": "bkeditor",
+  "title": "BKEditor",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.8.0",
+  "homepage": "https://github.com/panxuepeng/bkeditor",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/panxuepeng/bkeditor.git"
+  },
+  "bugs": "https://github.com/panxuepeng/bkeditor/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/panxuepeng/bkeditor/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

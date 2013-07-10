@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Slide demo</title>
+  <style type="text/css">
+	*{margin:0;padding:0;}
+	li { list-style:none;}
+	.clear {clear:both;}
+
+
+	#flash { margin:10px auto;}
+	#slide1,.slide {position:relative;};
+	#slide1 #flash {width:400px;}
+	#slide1  {width:450px;}
+	#slide1 .nav {width:30px; position:absolute; top:0px; right:50px;z-index:100px;}
+.nav span { display:block;width:25px;height:25px;line-height:25px;background-color:#DDD;text-align:center;margin:3px;cursor:pointer;}
+.nav span.current {background-color:red;}
+	#slide1  #title li { height:25px;}
+	li {margin:0;padding:0;}
+
+	#slide5 .nav {position:absolute; top:0px; left:0px;z-index:100px;}
+
+	/* slide 2*/
+
+	#slide2 {width:400px;position:relative;overflow:hidden;height:270px;}
+	#slide2  .box {width:400px;position:relative;overflow:hidden;height:270px;background:none repeat scroll 0 0 #336699;}
+	#slide2 ul {position:absolute;}
+	#slide2  li ,#slide2 .item{width:400px;height:270px;float:left; list-style:none;margin:0;padding:0;}
+	#slide2  .nav {position:absolute;z-index:100;top:0;left:0;}
+	#slide2  .nav span.current {background-color:red;}
+
+
+	 /* slide 3*/
+	#slide3 { margin:50px auto; position:relative;width:400px;height:280px;}
+	#slide3  .nav3 {height:25px;}
+	#slide3 .item {width:400px;height:280px;overflow:hidden;position:absolute;background-color:#EEE;}
+	#slide3 .itme p {margin-top:30px;}
+	#slide3  .nav {position:absolute;top:250px;right:5px;z-index:15;}
+	#slide3  .nav span { display:inline-block;width:25px;height:19px;line-height:19px;background-color:#DDD;text-align:center;margin:3px 3px 3px 0;cursor:pointer;}
+	#slide3  .nav span.current {background-color:red;}
+
+  </style>
+</head>
+
+<body>
+
+<div id="slide5" data-toggle="slide" data-timeout="5000" class="slide">
+	<div>
+		<img src="images/1.jpg" width="400" height="250" alt="" />
+		<br />
+		<p><a href="">1.发看来大家是否就开了交</a></p>
+	</div>
+	<div style="display:none;">
+		<img src="images/2.jpg" width="400" height="250" alt="" />
+		<br />
+		<p><a href="">2.刻录机刻录就考虑刻录机刻录就</a></p>
+	</div>
+	<div style="display:none;">
+		<img src="images/3.jpg" width="400" height="250" alt=""/>
+		<br />
+		<p><a href="">3.不空间和空间和就空好看廉价航空结了婚</a></p>
+	</div>
+	<div style="display:none;">
+		<img src="images/4.jpg" width="400" height="250" alt=""/>
+		<br />
+		<p><a href="">4.看了解离开就了空间看了解考虑就;立即;了解</a></p>
+	</div>
+	<div class="nav"></div>
+</div>
+
+ <div id="slide1" class="slide">
+	<ul>
+		<li><img src="images/1.jpg" width="400" height="250" alt="" />
+		<br /><p> <a href="">aaaaaaaaaaaa</a></p>
+		</li>
+		<li style="display:none;"><img src="images/2.jpg" width="400" height="250" alt="" />
+		<br />
+		<p><a href="">bbbbbbbbbbbbbbb</a></p></li>
+		<li style="display:none;"><img src="images/3.jpg" width="400" height="250" alt=""/>
+		<br />
+		<p><a href="">cccccccccccccccccc</a></p></li>
+		<li style="display:none;"><img src="images/4.jpg" width="400" height="250" alt=""/>
+		<br /><p><a href="">dddddddddddddddd</a></p></li>
+	</ul>
+  <div class="nav" ></div>
+ </div>
+
+<hr class="clear"/>
+
+<div id="slide2"  data-playtype="slide" data-direction="left" data-timeout="3000">
+	<div  class="box">
+		<ul>
+			<li><img src="images/1.jpg" width="400" height="250" />
+			<br /><p><a href="">aaaaaaaaaa</a></p></li>
+			<li><img src="images/2.jpg" width="400" height="250" />
+			<br />
+			<p> <a href=""> bbbbbbbbb</a></p></li>
+			<li><img src="images/3.jpg" width="400" height="250" />
+			<br />
+			<p><a href="">cccccccccccccc</a></p></li>
+			<li><img src="images/4.jpg" width="400" height="250" />
+			<br />
+			<p><a href="">dddddddddddd</a></p></li>
+		</ul>
+	</div>
+
+	<div class="clear" > </div>
+	<div class="nav" ></div>
+  </div>
+
+</div>
+
+<hr class="clear"/>
+
+<div id="slide3"  data-playtype="shadow"  data-timeout="2000" >
+
+	<div class="item"><img src="images/1.jpg" width="400" height="250" alt="" />
+	<br />
+	<p><a href="">1111111111</a></p></div>
+	<div class="item"><img src="images/2.jpg" width="400" height="250" alt="" />
+	<br />
+	<p><a href="">2222222222</a></p></div>
+	<div class="item"><img src="images/3.jpg" width="400" height="250" alt="" /><br />
+	<p><a href="">333333333333333</a></p></div>
+
+	<div id="nav" ></div>
+  </div>
+ </div>
+
+
+
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+seajs.use('../src/slide', function( $ ){
+	$( function () {
+		$('#slide5').slide ();
+		$('#slide1').slide ();
+		//$.Slide ();
+		$('#slide2').slide ();
+		$('#slide3').slide ();
+	});
+});
+</script>
+
+</body>
+</html>

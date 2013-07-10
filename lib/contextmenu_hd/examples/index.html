@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Contextmenu Hd demo</title>
+  <style type="text/css">
+	#test1,#test2 {
+			width:500px;
+			height:300px;
+			border:1px solid #ccc;
+			margin:5px;
+	}
+
+
+  </style>
+</head>
+
+<body>
+	<div id="test1" class="">
+			在此右键
+	</div>
+
+	<div id="test2" class="">
+		在此右键
+	</div>
+
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/seajs/seajs.js" id="seajsnode"></script>
+<script>
+function insertdate (o) {
+	alert (o.text());
+}
+
+seajs.use('../src/contextmenu_hd', function( $ ){
+
+	$(
+		function (){
+			var menulist = {
+				items:{
+					'del':{name:'删除',event:'insertdate', param:'type_1'},
+					'choice':{name:'选择',event:'insertdate', param:'type_2'},
+					'edit':{name:'编辑',event:'insertdate', param:'type_3'},
+					'sep1':{name:'separator',event:'insertdate', param:'type_3'},
+					'exit':{name:'退出',event:'insertdate', param:'type_4'}
+				}
+			};
+		   var menulist1 ={
+				items:{
+					'del':{name:'删除',event:'insertdate', param:'type_1'},
+					'choice':{name:'选择',event:'insertdate', param:'type_2'},
+					'edit':{name:'编辑',event:'insertdate', param:'type_3'},
+					'sep1':{name:'separator',event:'insertdate', param:'type_3'},
+					'exit':{name:'退出',event:'insertdate', submenu:{
+							'del':{name:'子删除',event:'insertdate', param:'type_1'},
+							'choice':{name:'子选择',event:'insertdate', param:'type_2'},
+							'edit':{name:'子编辑',event:'insertdate', param:'type_3'}
+						}
+					}
+				},
+				callback:function (e) {
+					alert ( $(e).text() );
+				}
+		   };
+			$('#test1').contextmenu(menulist);
+			$('#test2').contextmenu(menulist1);
+		});
+});
+</script>
+
+</body>
+</html>

@@ -12,15 +12,14 @@ spl_autoload_register(function($class){
 # Get Markdown class
 use \Michelf\Markdown;
 
-$name = isset($_GET['name']) ? $_GET['name'] : 'Readme';
-if( $name !== 'Readme' && $name !== 'use'  && $name !== 'changelog'  ){
-	$name = 'libs';
+$names = array('Readme', 'use', 'changelog', 'libs');
+
+foreach($names as $name){
+	# Read file and pass content through the Markdown praser
+	$text = file_get_contents("../docs/$name.md");
+	$text= Markdown::defaultTransform($text);
+
+	file_put_contents("../docs/$name.html", $text);
 }
 
-# Read file and pass content through the Markdown praser
-$text = file_get_contents("../docs/$name.md");
-$text= Markdown::defaultTransform($text);
-
-file_put_contents("../docs/$name.html", $text);
-
-echo $text;
+echo 'OK';

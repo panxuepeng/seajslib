@@ -1,18 +1,21 @@
 
-JavaScript 组件库
+SeaJS 组件库
 =================
+
+## 前言
+JavsScript模块化已成为发展趋势，由阿里、腾讯等公司共同维护的Sea.js，无疑是前端JS模块化方面最有力的支持者，其发展势头强劲，越来越多的网站正在受益其中。将常用的JS功能整理成库，于是就有了SeaJS组件库。
 
 ## 简介
 
 **让组件呼之即来，再也不需要写 script 标签来引用某个功能相关的js文件了。如有相关的css文件， Sea.js 也会自动帮你引入。只要是你看好的JS功能，基本上都可以成为这里的组件。** 
 
-每个组件都是[Sea.js](http://www.seajs.org)的模块，所以组件的使用依赖于Sea.js，也就是说要使用这些组件，需要在页面上先引入Sea.js。另外，考虑到现有项目大多依赖于jQuery，所以jQuery也需要直接引入，如下
+每个组件都是[Sea.js](http://www.seajs.org)的模块，所以组件的使用依赖于Sea.js，也就是说要使用这些组件，需要在页面上先引入Sea.js。另外，考虑到现有项目大多依赖于jQuery，所以jQuery也需要直接引入，例如
 
 	<script src="http://www.huimg.cn/lib/jquery-1.6.4.min.js"></script> (jQuery的版本需 1.4+)
 	<script src="http://www.huimg.cn/libs/seajs/2.1.0/seajs.js" id="seajsnode"></script>
 	<script>seajs.use('config/1.1.1/config')</script>
 
-其中 dist/config 是全局的配置文件，在这个文件当中对Sea.js进行了扩展。Sea.js本身没有自动加载组件的功能，为了简化组件的使用，我们给Sea.js扩展了这个功能。
+其中 config/1.1.1/config 是全局的配置文件，在这个文件当中对Sea.js进行了扩展。Sea.js本身没有自动加载组件的功能，为了简化组件的使用，我们给Sea.js扩展了这个功能。
 
 *组件开发使用了 Grunt <http://gruntjs.com/>。Grunt 是针对Javascript项目的一个自动化工具，包括初始化文件、代码审查、单元测试，合并、压缩等一系列常用功能，还有其他插件，也可以自定义插件。总之，这是一个很牛X的工具。*
 

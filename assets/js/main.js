@@ -1,6 +1,17 @@
 
 (function($, seajs){
 	var IE6 = window.VBArray && !window.XMLHttpRequest;
+	var version = '20130711';
+	
+  var debug = location.search.match(/[?&]debug/);
+  if (debug) {
+    version = + new Date;
+  }
+  
+	$._get = $.get;
+	$.get = function(url, fn){
+		$._get(url+'?'+version, fn);
+	}
 	
 	seajs.config({
 	  alias: {
@@ -51,19 +62,20 @@
 			$("#liblist").empty().html(list.join(''));
 		}, 0);
 		
-		runInit();
-		
-		seajs.autoload();
+		setTimeout(function(){
+			runInit();
+		}, 500);
 	});
 
 	function runInit(){
 		$('pre').attr('data-toggle', 'prettify')
-		.each(function(){
-			var o = $(this);
-			if(o.text().indexOf('seajs.use')>-1){
-				o.after('<input name="run" value="运行..." type="button" onclick="runCode(this)" />');
-			}
-		});
+			.each(function(){
+				var o = $(this);
+				if(o.text().indexOf('seajs.use')>-1){
+					o.after('<input name="run" value="运行..." type="button" onclick="runCode(this)" />');
+				}
+			});
+		seajs.autoload();
 	}
 
 	function runCode(btn){

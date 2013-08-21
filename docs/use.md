@@ -24,7 +24,7 @@
 ## 工具安装说明
  
 #### 第一：下载到本地
-下载地址 https://github.com/panxuepeng/seajslib/archive/gh-pages.zip 
+下载地址 https://github.com/panxuepeng/seajslib/archive/gh-pages.zip  
 假设目录是 D:\seajslib，下面会用到。
  
 #### 第二：安装 Node.js

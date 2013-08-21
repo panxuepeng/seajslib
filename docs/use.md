@@ -23,24 +23,22 @@
 <a name="usage4"></a>
 ## 工具安装说明
  
-#### 第一：组件库SVN
-svn 地址 svn://svn.hudong.net/commonjs/trunk/jslib  
-如果提示没有权限，请向发邮件给宇芳索取（假设导出目录是 D:\hudong\commonjs\jslib，下面会用到）
+#### 第一：下载到本地
+下载地址 https://github.com/panxuepeng/seajslib/archive/gh-pages.zip 
+假设目录是 D:\seajslib，下面会用到。
  
 #### 第二：安装 Node.js
-拿到安装文件，双击安装即可。已放到svn目录 jslib/tools/nodejs/node-v0.10.3-x86.msi
+参考 http://nodejs.org
  
 #### 第三：安装 Grunt 相关工具
 
-从svn导出代码之后，还需要执行以下步骤：
+1. 初始化：在命令行窗口进入 seajslib/lib 目录，执行 npm install shelljs。或者windows系统下，可以双击lib目录下的 shelljs.bat 文件，自动执行相关命令。因为第2步的安装依赖于shelljs。
 
-1. 初始化：在命令行窗口进入 jslib/lib 目录，执行 npm install shelljs。或者windows系统下，可以双击lib目录下的 shelljs.bat 文件，自动执行相关命令。因为第2步的安装依赖于shelljs。
-
-2. 模块安装：在命令行窗口进入 jslib/lib 目录，执行 node install.js ，安装 Grunt 相关模块。或者windows系统下，可以双击lib目录下的 install.bat 文件，自动执行相关命令。
+2. 模块安装：在命令行窗口进入 seajslib/lib 目录，执行 node install.js ，安装 Grunt 相关模块。或者windows系统下，可以双击lib目录下的 install.bat 文件，自动执行相关命令。
 
  
 #### 第四：例如创建一个 hello 组件
-jslib/lib 目录下有一个 new.bat 批处理文件，双击它，然后会出现命令窗口，提示你输入要创建的组件名，回车，窗口会问你一些问题，基本一路回车即可。组件命名需要符合JS变量命名规范。
+seajslib/lib 目录下有一个 new.bat 批处理文件，双击它，然后会出现命令窗口，提示你输入要创建的组件名，回车，窗口会问你一些问题，基本一路回车即可。组件命名需要符合JS变量命名规范。
 
 
 <a name="usage5"></a>

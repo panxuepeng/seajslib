@@ -27,9 +27,13 @@
   <label>Text: <input name="text" required="true" maxlength="10" pattern=".{4,10}"></label>
   
   <p>
+  文本，输入身份证号<br>
+  <label>Text: <input name="text" value="130521198010121274" required="true" maxlength="18" pattern="\d{18,18}|\d{17,17}[Xx]"></label>
+  
+  <p>
   文本，如何在表单项验证失败时做点特殊的事情<br>
-  使用 error 事件即可，$('#form input[name=domain]').bind('error', function(event, element){alert("你想做啥都可以")});<br>
-  <label>Text: <input name="domain" required="true" maxlength="10" pattern=".{4,10}"></label>
+  使用 after:eventname 事件即可，$('#form input[name=domain]').bind('after:hello', function(event, element){if ( $(element).closest('.error').length)alert("验证失败，你想做啥都可以")});<br>
+  <label>Text: <input name="domain" required="true" data-event="hello" maxlength="10" pattern=".{4,10}"></label>
   
   <p>
   文本，输入4 - 10个(字母\数字\下划线\中划线)字符(maxlength="10" pattern="^[\w-]{4,10}$")<br>
@@ -86,9 +90,9 @@
 
   <p>
   单选
-      <label><input type="radio" required="true" name="abc" value="A">[A]</label>
-      <label><input type="radio" required="true" name="abc" value="B">[B]</label>
-      <label><input type="radio" required="true" name="abc" value="C">[C]</label>
+      <label><input type="radio" required="true" name="abc" value="A" data-parent="p">[A]</label>
+      <label><input type="radio" required="true" name="abc" value="B" data-parent="p">[B]</label>
+      <label><input type="radio" required="true" name="abc" value="C" data-parent="p">[C]</label>
 
   <p>自定义事件(data-event="eventname" required="true")<br>
   <label>Custom Event: <input id="event" type="text" data-event="hello" required="true"></label>
@@ -148,8 +152,12 @@ seajs.use('../src/validator', function( ){
 		//console.log(element);
 	});
 	
-	$('#form input[name=domain]').bind('error', function(event, element){
-		alert('做点啥都可以的');
+	$('#form input[name=domain]').bind('after:hello', function(event, element){
+		if ($(element).closest('.error').length) {
+			alert('验证失败');
+		} else {
+			alert('验证成功');
+		}
 	});
 	
 	$('#username').bind('after:checkUsername', function(event, element){

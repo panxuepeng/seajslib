@@ -1,5 +1,5 @@
 /* 2013-12-30 */
-define("config/1.1.2/config", [], function(require, exports) {
+define("config/1.1.2/config-debug", [], function(require, exports) {
     return seajs;
 });
 

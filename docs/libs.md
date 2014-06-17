@@ -190,10 +190,7 @@ artDialog 是一个设计得十分巧妙的对话框组件，小巧身材却拥�
 百科站点前台上传图片组件  
 
 	seajs.use('baikeupload', function( ){
-		var url="http://a5.att.baike.com/uploadImageForBaike.wiki?doc_title="
-			+"&art_iden=&type=19&curuser_iden=HeWBmR0dnBn5ld3J4&"
-			+"host=http%3A%2F%2Fcommonjs.baike.com%2Flib%2Fbaikeupload"
-			+"%2Fexamples%2Fupload.php";
+		var url="*";
 			
 		$('#baikeupload').baikeUpload({
 			url: url,
